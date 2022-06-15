@@ -1,0 +1,117 @@
+nav {
+	position: fixed;
+	padding: 0 113px;
+	top: 0;
+	z-index: 2;
+	width: 100%;
+	transition: 0.3s ease;
+}
+
+.nav-flex {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header-logo-container {
+	width: 65px;
+	padding: 10px 0;
+}
+.header-logo-container img {
+	width: 100%;
+}
+
+ul.navbar-list {
+	display: flex;
+	list-style: none;
+}
+ul.navbar-list li.navbar-list-item {
+	padding: 30px 0 10px;
+	margin-left: 60px;
+}
+
+ul.navbar-list li.navbar-list-item a {
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+
+ul.navbar-list li.navbar-list-item a:hover {
+	color: #81ca00;
+}
+ul.navbar-list li.active {
+	color: #81ca00;
+	border-bottom: 3px solid #81ca00;
+}
+
+ul.navbar-list li.active a {
+	color: #81ca00;
+}
+
+ul.navbar-list li.active .about-pop .about-link {
+	border-bottom: none;
+}
+
+.about-pop {
+	position: fixed;
+	top: 88px;
+	width: 250px;
+	background-color: #01b2ff;
+	display: none;
+}
+.about-pop .about-pop-link {
+	cursor: pointer;
+	transition: 0.6s ease;
+}
+.about-pop .about-pop-link a.branch button {
+	width: 100%;
+	text-align: left;
+	font-family: inherit;
+	padding: 10px 0;
+	padding-left: 20px;
+	cursor: pointer;
+	color: #ffffff;
+	background-color: #01b2ff;
+	border: none;
+	transition: 0.6s ease;
+}
+.about-pop .about-pop-link a.branch button i {
+	margin-right: 30px;
+	transition: transform 0.6s ease;
+}
+.about-pop .about-pop-link:hover {
+	background-color: #0293d2;
+}
+.about-pop .about-pop-link:hover a.branch button {
+	background-color: #0293d2;
+}
+.about-pop .about-pop-link:hover a.branch button i {
+	transform: rotate(180deg);
+}
+.about-pop .about-pop-link:focus {
+	outline: none;
+}
+
+ul.navbar-list li.navbar-list-item:hover #pop1,
+ul.navbar-list li.navbar-list-item:hover #pop2 {
+	display: block;
+}
+
+/* Toggles When the page is scrolling */
+nav.page-scrolling {
+	background-color: #ffffff;
+	box-shadow: 0px 5px 71px #00000029;
+	-webkit-box-shadow: 0px 5px 71px #00000029;
+	-moz-box-shadow: 0px 5px 71px #00000029;
+	-o-box-shadow: 0px 5px 71px #00000029;
+}
+
+nav.page-scrolling ul.navbar-list li.navbar-list-item a {
+	color: #707070;
+}
+
+nav.page-scrolling ul.navbar-list li.navbar-list-item a:hover {
+	color: #707070;
+	color: #81ca00;
+}

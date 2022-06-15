@@ -1,0 +1,141 @@
+section.page-title {
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/goals-section.jpg);
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+ }
+
+p.news-header {
+	font-size: 3rem;
+	margin-top: 30px; }
+
+section.events-section {
+	background-color: #F3F3F3;
+	padding: 100px 0 50px; }
+
+.events-flex {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap; }
+
+.events-container {
+	width: 49%;
+	background-color: #ffffff;
+	text-align: center;
+	padding: 20px 0; }
+
+.square-top {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-color: #81CA00;
+	margin: 0 20px; }
+
+.calendar-bottom {
+	border: 7px solid #81CA00;
+	border-radius: 10px;
+	width: 80px;
+	margin: auto;
+	margin-top: -10px;
+	padding: 25px 0; }
+
+p.day-number {
+	font-size: 25px;
+	color: #1C1C1C; }
+
+p.day-month {
+	font-size: 10px;
+	line-height: 0; }
+
+.events-text {
+	width: 60%;
+	margin: auto; }
+
+p.event-title {
+	color: #1C1C1C;
+	margin-top: 20px; }
+
+p.event-description {
+	color: #B4B4B4;
+	font-size: 14px;
+	line-height: 1.8;
+	margin-top: 15px; }
+
+.time-location {
+	font-size: 12px;
+	color: #B4B4B4;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin: 30px auto; }
+	.time-location i {
+		margin-right: 5px; }
+
+#read-container-events {
+	width: 100%;
+	margin: auto;
+	text-align: right;
+	font-size: 12px; }
+
+p.read-more {
+	color: #00AAFF;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 50px; }
+	p.read-more span {
+		margin-left: 5px; }
+	p.read-more:hover {
+		text-decoration: underline; }
+
+#more-events {
+	display: none;
+	margin-top: 30px; }
+
+@media screen and (max-width: 768px) {
+	.events-container {
+		width: 90%;
+		margin-bottom: 30px; }
+
+	#more-events {
+		margin-top: 0; }
+
+	#read-container-events {
+		text-align: center;
+		font-size: 10px; }
+		#read-container-events p.read-more {
+			margin-top: 20px; }
+
+	.events-flex {
+		justify-content: space-around; }
+
+	p.ules-name {
+		font-size: 14px; }
+
+	header {
+		margin-top: 65px; }
+
+	p.news-header {
+		font-size: 2rem; }
+
+	p.event-title {
+		font-size: 12px; }
+
+	p.event-description {
+		font-size: 10px; }
+
+	.time-location {
+		justify-content: space-around;
+		flex-wrap: wrap;
+		font-size: 10px;
+		width: 100%; }
+
+	.time,
+	.location {
+		width: 100%; }
+
+	.location {
+		margin-top: 15px; } }
+
+#more-events .events-container{
+	margin-bottom: 30px;
+}
