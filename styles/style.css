@@ -43,7 +43,7 @@ a:hover {
 section.page-title {
 	padding: 228px 0 150px 113px;
 	color: white;
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/excos.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../src/images/excos.jpg);
 	background-position: top;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -88,8 +88,8 @@ section div.header h1 {
 
 section.testimonials {
 	color: #ffffff;
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-	url(../images/testimonials-bg.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+	url(../src/images/testimonials-bg.jpg);
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;

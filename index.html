@@ -8,10 +8,10 @@
     <meta property="og:image" content="assets/images/logo.png">
     <meta property="og:url" content="http://undecided">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/navbar.css">
-    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/images/logo.png">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap" rel="stylesheet">
     <title>Welcome •|• University of Lagos Engineering Society</title>
@@ -20,7 +20,7 @@
     <nav>
 		<div class="nav-flex">
 			<div class="header-logo-container">
-				<a href=".."><img src="assets/images/logo.png" alt="Logo"></a>
+				<a href=".."><img src="./src/images/logo.png" alt="Logo"></a>
 			</div>
 
 			<div class="navbar-container">
@@ -30,17 +30,17 @@
 						<a>About</a>
 						<div class="about-pop fade" id="pop1">
 							<div class="about-pop-link">
-								<a href="executives" class="branch"><button><i class="fa fa-caret-left"></i>Meet Our Executives</button></a>
+								<a href="./pages/executives" class="branch"><button><i class="fa fa-caret-left"></i>Meet Our Executives</button></a>
 							</div>
 							<div class="about-pop-link">
-								<a href="departments" class="branch"><button><i class="fa fa-caret-left"></i>Our Departments</button></a>
+								<a href="./pages/departments" class="branch"><button><i class="fa fa-caret-left"></i>Our Departments</button></a>
 							</div>
 						</div>
 					</li>
-					<li class="navbar-list-item"><a href="gallery">Gallery</a></li>
-					<li class="navbar-list-item"><a href="events">Events</a></li>
-					<li class="navbar-list-item"><a href="news">Ules News</a></li>
-					<li class="navbar-list-item"><a href="contact">Contact</a></li>
+					<li class="navbar-list-item"><a href="./pages/gallery">Gallery</a></li>
+					<li class="navbar-list-item"><a href="./pages/events">Events</a></li>
+					<li class="navbar-list-item"><a href="./pages/news">ULES News</a></li>
+					<li class="navbar-list-item"><a href="./pages/contact">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -69,7 +69,7 @@
     <div class="header-snippet-wrapper">
         <div class="snippet-flex fade">
             <div class="snippet-img-wrapper">
-                <img src="assets/images/images (1).jpeg" alt="Senate">
+                <img src="./src/images/images (1).jpeg" alt="Senate">
             </div>
 
             <div class="snippet-text-wrapper">
@@ -93,18 +93,39 @@
                 <div class="president-welcome-text-wrapper">
                     <p class="welcome-header">You Are Welcome</p>
                     <div class="welcome-line"></div>
-                    <img src="assets/images/IMG-20200507-WA0081.jpg" alt="Presido" class="text-img">
-                    <p class="welcome-text">The University of Lagos Engineering Society (ULES), is the oldest student body in the University of Lagos. Since its inception, it has been led by various great personalities and I’m honored to be the sitting president. The faculty currently has 10 departments and with the help of my tenacious executives, we ensure that every ULESite has a smooth journey through out their stay in the faculty. 
-                        The ULES is led by students from different departments across the faculty who were elected through a fair voting system. All work and no play would make us dull engineers, that is why we have numerous events to keep our prospective engineers active. Some of the events we organize annually are Engineering Career Expo (ECX), Engineering Ladies Day (ELD), Professor Ayodele Awojobi Design Competition (PAADC), ULES Orators and Writers, ULES Games and a host of other educative and fun events. These events help ensure maximum growth and development of the UNILAG ENGINEER. 
-                        I hereby use this opportunity to welcome to you to the best faculty in the University of Lagos.
+                    <img src="./src/images/IMG-20200507-WA0081.jpg" alt="Presido" class="text-img">
+                    <p class="welcome-text">
+                        The University of Lagos Engineering Society (ULES), is the oldest student body
+                        formed in 1967 at the University of Lagos. Since its inception, various great
+                        personalities have contributed to the growth of the community. The faculty
+                        currently has 10 departments and with the help of my tenacious executives,
+                        we ensure that every ULESite have a good experience throughout their stay in the faculty.
+                        ULES is led by students from different departments across the faculty who were elected
+                        through a fair voting system.
+                        <p>
+                            All work and no play would make us dull engineers,
+                            that is why we have numerous events to keep our prospective engineers active -
+                            that is consistent with our high-level mission. Some of the events we organize
+                            annually are the
+                            <a href="http://ecx.org.ng">Engineering Career Expo (ECX)</a>,
+                            <a href="https://instagram.com/eldofficial">Engineering Ladies Day (ELD)</a>,
+                            <a href="http://paadc.com">Professor Ayodele Awojobi Design Competition (PAADC)</a>,
+                            <a href="https://www.instagram.com/ules_oratory">ULES Orators, and Writers</a>,
+                            <a href="https://www.instagram.com/ules.sports">ULES Games</a>,
+                            and a host of other academic and social activities.
                         </p>
-                    <p class="president-name"><b> Hon. Adeyemi Jammal </b> </p>    
-                    <p class="president-name president "><b> ULES President (2019/2020 Session) </b> </p>
-                    
+                        I humbly use this opportunity to welcome you to the best faculty at the University of Lagos.
+                    </p>
+                    <p class="president-name">
+                        <b>Damola Agboola </b>
+                    </p>
+                    <p class="president-name president ">
+                        <b> ULES President (2021/2022 Session) </b>
+                    </p>
                 </div>
 
                 <div class="president-image-avatar">
-                    <img src="assets/images/IMG-20200507-WA0081.jpg" alt="President">
+                    <img src="./src/images/IMG-20200507-WA0081.jpg" alt="President">
                 </div>
                 
             </div>
@@ -119,14 +140,14 @@
 
         <div class="container">
             <div class="highlights-flex">
-                <a href="news" class="select-contents-link">
+                <a href="./pages/news" class="select-contents-link">
                     <div class="select-container">
                         <p class="select-header">Featured News</p>
                     </div>
 
                     <div class="contents">
                         <div class="content-img-wrapper">
-                            <img src="assets/images/content1.jpg" alt="img">
+                            <img src="./src/images/content1.jpg" alt="img">
                         </div>
     
                         <div class="back">
@@ -141,14 +162,14 @@
                     </div>
                 </a>
 
-                <a href="events" class="select-contents-link">
+                <a href="./pages/events" class="select-contents-link">
                     <div class="select-container">
                         <p class="select-header">Upcoming Events</p>
                     </div>
 
                     <div class="contents">
                         <div class="content-img-wrapper">
-                            <img src="assets/images/ecxvpicturee.jpg" alt="img">
+                            <img src="./src/images/ecxvpicturee.jpg" alt="img">
                         </div>
                         
                         <div class="back">
@@ -170,7 +191,7 @@
 
                     <div class="contents">
                         <div class="content-img-wrapper">
-                            <img src="assets/images/content3.jpg" alt="img">
+                            <img src="./src/images/content3.jpg" alt="img">
                         </div>
                         
                         <div class="back">
@@ -191,7 +212,7 @@
 
             <div class="select-bottom">
                 <div class="see-more-link">
-                    <a href="news">See the full news archive</a>
+                    <a href="./pages/news">See the full news archive</a>
                 </div>
     
                 <!-- <div class="toggle-boxes">
@@ -201,7 +222,7 @@
                 </div> -->
     
                 <div class="subscribe-link">
-                    <a href="news#newsletter">Subscribe</a>
+                    <a href="./pages/news#newsletter">Subscribe</a>
                 </div>
             </div>
         </div>
@@ -252,7 +273,7 @@
 
             <div class="all-images-wrapper">
                 <div class="all-wrapper">
-                    <a href="gallery" class="all-link">All</a>
+                    <a href="./pages/gallery" class="all-link">All</a>
                 </div>
 
                 <div class="image-wrapper">
@@ -262,23 +283,23 @@
 
             <div class="gallery-flex">
                 <div class="img-wrapper">
-                    <img src="assets/images/gal1.jpg" alt="Gallery">
+                    <img src="./src/images/gal1.jpg" alt="Gallery">
                 </div>
 
                 <div class="img-wrapper">
-                    <img src="assets/images/gal2.jpg" alt="Gallery">
+                    <img src="./src/images/gal2.jpg" alt="Gallery">
                 </div>
 
                 <div class="img-wrapper">
-                    <img src="assets/images/gal3.jpg" alt="Gallery">
+                    <img src="./src/images/gal3.jpg" alt="Gallery">
                 </div>
 
                 <div class="img-wrapper">
-                    <img src="assets/images/gal4.jpg" alt="Gallery">
+                    <img src="./src/images/gal4.jpg" alt="Gallery">
                 </div>
 
                 <div class="img-wrapper">
-                    <img src="assets/images/gal5.jpg" alt="Gallery">
+                    <img src="./src/images/gal5.jpg" alt="Gallery">
                 </div>
             </div>
         </div>
@@ -297,7 +318,7 @@
         <div class="container">
             <div class="card-flex fade">
                 <div class="avatar-container">
-                    <img src="assets/images/testimonial1.jpg" alt="">
+                    <img src="./src/images/testimonial1.jpg" alt="">
                 </div>
 
                 <div class="quote-container">
@@ -314,22 +335,22 @@
 
                 <div class="excos">
                     <div class="img1x-container">
-                        <img src="assets/images/IMG_3816.jpg" alt="exco">
+                        <img src="./src/images/IMG_3816.jpg" alt="exco">
                     </div>
 
                     <div class="img2x-container">
-                        <img src="assets/images/IMG_3892-1.jpg" alt="exco">
+                        <img src="./src/images/IMG_3892-1.jpg" alt="exco">
                     </div>
 
                     <div class="img3x-container">
-                        <img src="assets/images/IMG_3825.jpg" alt="exco">
+                        <img src="./src/images/IMG_3825.jpg" alt="exco">
                     </div>
                 </div>
             </div>
 
             <div class="card-flex fade">
                 <div class="avatar-container">
-                    <img src="assets/images/testimonial2.jpg" alt="">
+                    <img src="./src/images/testimonial2.jpg" alt="">
                 </div>
 
                 <div class="quote-container">
@@ -346,22 +367,22 @@
 
                 <div class="excos">
                     <div class="img1x-container">
-                        <img src="assets/images/IMG_3816.jpg" alt="exco">
+                        <img src="./src/images/IMG_3816.jpg" alt="exco">
                     </div>
 
                     <div class="img2x-container">
-                        <img src="assets/images/IMG_3892-1.jpg" alt="exco">
+                        <img src="./src/images/IMG_3892-1.jpg" alt="exco">
                     </div>
 
                     <div class="img3x-container">
-                        <img src="assets/images/IMG_3825.jpg" alt="exco">
+                        <img src="./src/images/IMG_3825.jpg" alt="exco">
                     </div>
                 </div>
             </div>
 
             <div class="card-flex fade">
                 <div class="avatar-container">
-                    <img src="assets/images/testimonial3.jpg" alt="">
+                    <img src="./src/images/testimonial3.jpg" alt="">
                 </div>
 
                 <div class="quote-container">
@@ -378,15 +399,15 @@
 
                 <div class="excos">
                     <div class="img1x-container">
-                        <img src="assets/images/IMG_3816.jpg" alt="exco">
+                        <img src="./src/images/IMG_3816.jpg" alt="exco">
                     </div>
 
                     <div class="img2x-container">
-                        <img src="assets/images/IMG_3892-1.jpg" alt="exco">
+                        <img src="./src/images/IMG_3892-1.jpg" alt="exco">
                     </div>
 
                     <div class="img3x-container">
-                        <img src="assets/images/IMG_3825.jpg" alt="exco">
+                        <img src="./src/images/IMG_3825.jpg" alt="exco">
                     </div>
                 </div>
             </div>
@@ -406,7 +427,7 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-logo-container">
-                    <img src="assets/images/logo.png" alt="logo">
+                    <img src="./src/images/logo.png" alt="logo">
                 </div>
 
                 <div class="copyright-text">
@@ -422,9 +443,9 @@
         </div>
     </footer>
 
-    <script src="../assets/js/navbar.js"></script>
-    <script src="../assets/js/footer.js"></script>
-    <script src="../assets/js/code.js"></script>
-    <script src="../assets/js/homecode.js"></script>
+    <script src="./scripts/navbar.js"></script>
+    <script src="./scripts/footer.js"></script>
+    <script src="./scripts/code.js"></script>
+    <script src="./scripts/homecode.js"></script>
 </body>
 </html>

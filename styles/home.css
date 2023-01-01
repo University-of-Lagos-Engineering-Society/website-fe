@@ -1,6 +1,6 @@
 header {
 	padding-top: 88px;
-	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/home-header.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../src/images/home-header.jpg);
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -132,7 +132,7 @@ p.president-name {
 
 section.highlights-section {
 	color: #ffffff;
-	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../assets/images/highlight.jpeg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../src/images/highlight.jpeg);
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -291,7 +291,7 @@ p.date {
 
 section.goals {
 	color: #ffffff;
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/goals-section.jpg);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../src/images/goals-section.jpg);
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -301,7 +301,8 @@ section.goals {
 	-o-background-repeat: no-repeat;
 	background-repeat: no-repeat;
 	padding: 120px 0;
-	margin-top: 700px; }
+	margin-top: 700px;
+}
 
 p.goals-header {
 	font-size: 26px;
@@ -436,7 +437,7 @@ section.gallery-section {
 		margin-top: 0; }
 
 	section.highlights-section {
-		background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../assets/images/mobile.jpeg);
+		background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../src/images/mobile.jpeg);
 		margin-bottom: 1500px; }
 
 	a.select-contents-link {
