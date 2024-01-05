@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "banner": "/home/blog/items/blog-banner.png",
+        "bannerAlt": "african young woman holding wallet with virtual currency bitcoin stressed frustrated with hand head surprised angry face.",
+        "tags": ["finance"],
+        "length": "8 min read",
+        "title": "5 Steps to Managing Your Finances as a Student",
+        "body": "The article provides five practical steps for students to achieve financial freedom.",
+        "link": "/blog/finance-management"
+    },
+    {
+        "id": 2,
+        "banner": "/home/blog/items/blog-banner.png",
+        "bannerAlt": "african young woman holding wallet with virtual currency bitcoin stressed frustrated with hand head surprised angry face.",
+        "tags": ["finance"],
+        "length": "8 min read",
+        "title": "5 Steps to Managing Your Finances as a Student",
+        "body": "The article provides five practical steps for students to achieve financial freedom.",
+        "link": "/blog/finance-management"
+    }
+]

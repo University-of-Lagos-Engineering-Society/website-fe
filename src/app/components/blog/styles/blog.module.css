@@ -1,0 +1,27 @@
+.blog {
+    width: 100%;
+    padding: 64px;
+    background: var(--white-900);
+}
+.blogContainer {
+    width: 100%;
+    position: relative;
+}
+.blogList {
+    width: 100%;
+}
+.blogHead {
+    margin-bottom: 24px;
+    color: var(--text-black-900);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 4px;
+}
+.recentBlogs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}

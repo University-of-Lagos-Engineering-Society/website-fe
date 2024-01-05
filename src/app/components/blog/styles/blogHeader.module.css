@@ -1,0 +1,33 @@
+.blogHeader {
+    width: 100%;
+    background: url(/home/blog/banner.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 64px;
+}
+.overlay {
+    width: 100%;
+    padding: 93px 20px;
+    display: flex;
+    justify-content: center;
+    background: rgb(0, 0, 0, 0.67);
+}
+.title {
+    position: relative;
+}
+.title > span {
+    color: var(--text-white-900);
+    text-align: center;
+    font-size: 61.6px;
+    font-style: italic;
+    line-height: 120%;
+}
+.title hr {
+    position: absolute;
+    right: -76px;
+    top: 44px;
+    width: 48px;
+    height: 4px;
+    background: var(--white-900);
+    border: none;
+}

@@ -1,0 +1,41 @@
+.slideControl {
+    width: 100%;
+    max-width: 324px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white-900);
+    box-shadow: -11px 11px 33px 0px rgba(0, 0, 0, 0.01);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+.moveButton {
+    width: 32px;
+    height: 32px;
+    background: var(--primary-color);
+}
+.moveButton.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.slideStats {
+    width: 100%;
+    max-width: 132px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.slideStats button {
+    width: 12px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.2);
+}
+.slideStats button.active {
+    width: 42px;
+    background: var(--primary-color);
+}

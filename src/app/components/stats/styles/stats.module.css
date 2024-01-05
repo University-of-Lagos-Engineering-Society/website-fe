@@ -1,0 +1,14 @@
+.stats {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 64px;
+    background: transparent;
+}
+.statsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}

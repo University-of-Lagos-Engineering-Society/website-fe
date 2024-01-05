@@ -1,0 +1,51 @@
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 22.75px 70px 20.95px 64px;
+    background: url(/public/bg-images/navbarBG.png),
+        lightgray -1.031px -53px / 100.161% 266.163% no-repeat,
+        linear-gradient(
+            253deg,
+            rgba(217, 217, 217, 0) -7.53%,
+            rgba(217, 217, 217, 0) 97.04%
+        );
+    backdrop-filter: blur(8.5px);
+}
+
+.logo {
+    display: flex;
+    width: 100%;
+    max-width: 272px;
+    gap: 11.3px;
+    align-items: center;
+}
+.logo span {
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 140%;
+}
+.navItems {
+    width: 100%;
+    max-width: 361px;
+}
+.navList {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.navList li {
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 200%;
+}
