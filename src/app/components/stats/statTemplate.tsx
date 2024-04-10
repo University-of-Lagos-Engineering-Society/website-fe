@@ -13,7 +13,7 @@ export default function StatTemplate({
 }: statTemplateProp) {
     return (
         <div className={statTemplateStyle.statTemplate}>
-            <Image src={iconPath} alt="" width={112} height={112} />
+            <Image src={iconPath} alt="" width={112} height={100} />
             <div className={statTemplateStyle.statDetail}>
                 <h3 className={InstrumentSerif.className}>{stat}</h3>
                 <p>{desc}</p>

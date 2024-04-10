@@ -18,7 +18,7 @@ export default function Executives() {
                     <h3 className={InstrumentSerif.className}>
                         ULES EXECUTIVES
                     </h3>
-                    <h4>2022/2023 - Academic Session</h4>
+                    <h4>2023/2024 - Academic Session</h4>
                 </div>
             </figcaption>
         </figure>
