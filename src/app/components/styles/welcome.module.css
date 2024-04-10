@@ -54,3 +54,37 @@
     font-weight: 400;
     line-height: 150%;
 }
+
+@media (max-width: 1200px) {
+    .welcome {
+        padding: 24px;
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+    .welcomeContent {
+        flex-flow: column nowrap;
+    }
+
+    .welcomeMsg,
+    .execLg {
+        width: 100%;
+    }
+    .title {
+        font-size: 21px;
+        align-items: center;
+        gap: 16px;
+    }
+    .title hr {
+        margin: 0;
+    }
+    .welcomeMsg {
+        padding: 36px;
+    }
+}
+
+@media (max-width: 468px) {
+    .message {
+        font-size: 14px;
+        line-height: 2;
+    }
+}
