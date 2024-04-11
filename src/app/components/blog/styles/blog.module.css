@@ -22,6 +22,14 @@
 .recentBlogs {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 2em;
     align-items: stretch;
+}
+
+@media (min-width: 768px) {
+    .recentBlogs {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }

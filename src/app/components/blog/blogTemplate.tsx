@@ -40,7 +40,7 @@ export default function BlogTemplate({
                             );
                         })}
                     </div>
-                    <span>{length}</span>
+                    <span className={blogTemplateStyles.tagLength}>{length}</span>
                 </h4>
                 <h3 className={InstrumentSerif.className}>{title}</h3>
                 <p>{body}</p>
