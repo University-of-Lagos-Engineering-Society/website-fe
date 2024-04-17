@@ -8,3 +8,9 @@
     padding-bottom: 48px;
     position: relative;
 }
+
+@media (max-width: 1200px) {
+    .events {
+        padding: 24px;
+    }
+}
