@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-    padding: 22.75px 70px 20.95px 64px;
+    padding: min(24px, 5.6%);
     background: url(/public/bg-images/navbarBG.png),
         lightgray -1.031px -53px / 100.161% 266.163% no-repeat,
         linear-gradient(
@@ -17,35 +17,96 @@
         );
     backdrop-filter: blur(8.5px);
 }
-
 .logo {
     display: flex;
     width: 100%;
-    max-width: 272px;
-    gap: 11.3px;
+    max-width: 199px;
+    gap: 6px;
     align-items: center;
+}
+.logoImg {
+    width: 43.3px;
+    height: auto;
 }
 .logo span {
     color: var(--primary-color);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 8.5px;
+    font-weight: 700;
     line-height: 140%;
 }
 .navItems {
     width: 100%;
-    max-width: 361px;
+    max-width: 25px;
+    position: relative;
+}
+.menuBtn {
+    display: block;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s ease;
+}
+.menuBtn:hover,
+.menuBtn:focus {
+    opacity: 1;
 }
 .navList {
-    width: 100%;
+    position: absolute;
+    width: 110px;
+    background: #ffffff;
+    padding: 24px 0;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    row-gap: 16px;
     list-style: none;
+    transition: 0.5s ease;
 }
-
+.showList {
+    right: 0;
+}
+.hideList {
+    right: -134px;
+}
 .navList li {
     color: var(--primary-color);
     font-size: 12px;
     font-weight: 600;
     line-height: 200%;
+}
+
+@media (min-width: 640px) {
+    @media (min-width: 768px) {
+        .navbar {
+            padding: 22.75px 70px 20.95px 64px;
+        }
+        .logo {
+            max-width: 272px;
+            gap: 11.3px;
+        }
+        .logoImg {
+            width: 54.45px;
+        }
+        .logo span {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .navItems {
+            max-width: 361px;
+        }
+        .menuBtn {
+            display: none;
+        }
+        .navList {
+            position: relative;
+            width: 100%;
+            background: transparent;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            row-gap: 0;
+        }
+    }
 }
