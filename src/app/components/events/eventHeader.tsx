@@ -8,8 +8,8 @@ export default function EventsHeader() {
                 <h2 className={eventsHeaderStyle.title}>
                     <span className={InstrumentSerif.className}>
                         Our Events
+                        <div className={eventsHeaderStyle.dash}></div>
                     </span>
-                    <hr />
                 </h2>
             </div>
         </div>
