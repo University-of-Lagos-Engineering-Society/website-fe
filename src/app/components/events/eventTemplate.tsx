@@ -14,10 +14,17 @@ export default function EventTemplate({
     return (
         <div className={eventsTemplateStyle.eventTemplate}>
             <div className={eventsTemplateStyle.eventDetails}>
-                <Image src={logo} alt={logoAlt} width={214} height={50} />
+                <Image
+                    className={eventsTemplateStyle.image}
+                    src={logo}
+                    alt={logoAlt}
+                    width={214}
+                    height={50}
+                />
                 <div className={eventsTemplateStyle.details}>
                     <h3 className={InstrumentSerif.className}>
-                        {header} <hr />
+                        {header}
+                        <hr />
                     </h3>
                     <p>{description}</p>
                 </div>
