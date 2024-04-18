@@ -7,7 +7,6 @@ export default function Hero() {
     return (
         <div className={heroStyle.hero}>
             <div className={heroStyle.heroCnt}>
-                <div className={heroStyle.bgOverlay}></div>
                 <h2 className={heroStyle.heroTitle}>
                     <span className={InstrumentSerif.className}>
                         Engineering
@@ -34,6 +33,7 @@ export default function Hero() {
                             alt=""
                             width={86.54}
                             height={83.6}
+                            className={heroStyle.scrollText}
                         />
                     </span>
                 </Link>

@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-    padding: min(24px, 5.6%);
+    padding: 24px min(24px, 5.6%);
     background: url(/public/bg-images/navbarBG.png),
         lightgray -1.031px -53px / 100.161% 266.163% no-repeat,
         linear-gradient(
@@ -79,7 +79,7 @@
 @media (min-width: 640px) {
     @media (min-width: 768px) {
         .navbar {
-            padding: 22.75px 70px 20.95px 64px;
+            padding: 22.75px min(5.5%, 70px) 20.95px min(5%, 64px);
         }
         .logo {
             max-width: 272px;
@@ -100,6 +100,7 @@
         }
         .navList {
             position: relative;
+            right: 0;
             width: 100%;
             background: transparent;
             padding: 0;
