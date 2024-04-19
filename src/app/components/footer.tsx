@@ -11,6 +11,7 @@ export default function Footer() {
                     width={76.23}
                     height={76.02}
                     alt="University of Lagos Engineering Soceity"
+                    className={footerStyle.logoImg}
                 />
                 <ul className={footerStyle.navLinks}>
                     <li>
