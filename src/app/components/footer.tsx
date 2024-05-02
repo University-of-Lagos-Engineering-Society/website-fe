@@ -21,16 +21,16 @@ export default function Footer() {
                         <Link href="#about">About</Link>
                     </li>
                     <li>
-                        <Link href="#">Gallery</Link>
-                    </li>
-                    <li>
                         <Link href="#">ULES Blog</Link>
                     </li>
                     <li>
-                        <Link href="#">Contact</Link>
+                        <Link href="#">Gallery</Link>
                     </li>
                     <li>
-                        <Link href="#events">Events</Link>
+                        <Link href="#events">Event</Link>
+                    </li>
+                    <li>
+                        <Link href="#">Committee</Link>
                     </li>
                 </ul>
                 <ul className={footerStyle.socials}>

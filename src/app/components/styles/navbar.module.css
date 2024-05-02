@@ -8,13 +8,11 @@
     align-items: center;
     gap: 40px;
     padding: 24px min(24px, 5.6%);
-    background: url(/public/bg-images/navbarBG.png),
-        lightgray -1.031px -53px / 100.161% 266.163% no-repeat,
-        linear-gradient(
-            253deg,
-            rgba(217, 217, 217, 0) -7.53%,
-            rgba(217, 217, 217, 0) 97.04%
-        );
+    background-image: linear-gradient(
+        to right,
+        rgba(217, 217, 217, 1),
+        rgba(217, 217, 217, 0)
+    );
     backdrop-filter: blur(8.5px);
 }
 .logo {
@@ -43,7 +41,7 @@
     display: block;
     background: transparent;
     cursor: pointer;
-    opacity: 0.4;
+    opacity: 0.6;
     transition: 0.3s ease;
 }
 .menuBtn:hover,
@@ -52,28 +50,32 @@
 }
 .navList {
     position: absolute;
-    width: 110px;
+    top: 60px;
+    width: 100vw;
     background: #ffffff;
-    padding: 24px 0;
+    padding: 18px 24px 42px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     row-gap: 16px;
     list-style: none;
     transition: 0.5s ease;
 }
 .showList {
-    right: 0;
+    right: -24px;
 }
 .hideList {
-    right: -134px;
+    right: -120vw;
 }
 .navList li {
     color: var(--primary-color);
     font-size: 12px;
     font-weight: 600;
     line-height: 200%;
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 @media (min-width: 640px) {
@@ -93,13 +95,14 @@
             font-weight: 500;
         }
         .navItems {
-            max-width: 361px;
+            max-width: 452px;
         }
         .menuBtn {
             display: none;
         }
         .navList {
             position: relative;
+            top: 0;
             right: 0;
             width: 100%;
             background: transparent;
@@ -107,7 +110,12 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
             row-gap: 0;
+        }
+        .navList li {
+            height: auto;
+            display: block;
         }
     }
 }
