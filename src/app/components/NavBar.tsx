@@ -82,12 +82,15 @@ export default function NavBar() {
                         <Link href="/blog">ULES Blog</Link>
                     </li>
                     <li>
-                        <Link href="#contact">Contact</Link>
+                        <Link href="#">Gallery</Link>
                     </li>
                     <li>
                         <Link href="#events" rel="noopener noreferrer">
-                            Events
+                            Event
                         </Link>
+                    </li>
+                    <li>
+                        <Link href="#">Committee</Link>
                     </li>
                 </ul>
             </div>
