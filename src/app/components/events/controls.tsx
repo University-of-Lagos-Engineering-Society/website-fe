@@ -28,8 +28,8 @@ export default function EventSlideControl() {
                     <path
                         d="M8 11.2L2.4 6.00005L8 0.800049"
                         stroke="white"
-                        stroke-width="0.8"
-                        stroke-linecap="square"
+                        strokeWidth="0.8"
+                        strokeLinecap="square"
                     />
                 </svg>
             </button>
@@ -73,8 +73,8 @@ export default function EventSlideControl() {
                     <path
                         d="M4 11.2L9.6 6.00005L4 0.800049"
                         stroke="white"
-                        stroke-width="0.8"
-                        stroke-linecap="square"
+                        strokeWidth="0.8"
+                        strokeLinecap="square"
                     />
                 </svg>
             </button>
