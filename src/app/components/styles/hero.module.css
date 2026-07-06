@@ -54,7 +54,7 @@
     margin: auto;
 }
 .scrollDown svg > path {
-    stroke-width: 0px;
+    strokewidth: 0px;
     stroke: var(--white-900);
 }
 .scrollText {
@@ -97,7 +97,7 @@
             max-height: 33.12px;
         }
         .scrollDown svg > path {
-            stroke-width: 1.44px;
+            strokewidth: 1.44px;
         }
         .scrollText {
             width: 86.54px;

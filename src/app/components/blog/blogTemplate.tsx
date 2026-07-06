@@ -40,7 +40,9 @@ export default function BlogTemplate({
                             );
                         })}
                     </div>
-                    <span className={blogTemplateStyles.tagLength}>{length}</span>
+                    <span className={blogTemplateStyles.tagLength}>
+                        {length}
+                    </span>
                 </h4>
                 <h3 className={InstrumentSerif.className}>{title}</h3>
                 <p>{body}</p>
@@ -56,9 +58,9 @@ export default function BlogTemplate({
                         <path
                             d="M22.1708 21.3753V11.8293H12.6248M21.5078 12.4922L11.8293 22.1708"
                             stroke="#4E9F41"
-                            stroke-width="2.25"
-                            stroke-miterlimit="10"
-                            stroke-linecap="square"
+                            strokeWidth="2.25"
+                            strokeMiterlimit="10"
+                            strokeLinecap="square"
                         />
                     </svg>
                 </Link>
