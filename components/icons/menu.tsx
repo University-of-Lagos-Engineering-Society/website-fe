@@ -1,23 +1,9 @@
-import React from "react";
+import React from 'react';
 
 type MenuIconProps = React.SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
-/**
- * Hamburger menu icon.
- * Fills with `currentColor` so it inherits `text-primary`
- * from the wrapping <Button>. Pass `color` via className.
- *
- * Usage:
- *   <Button
- *     variant="ghost"
- *     size="icon-xs"
- *     className="lg:hidden text-primary hover:bg-transparent py-[6.25px]"
- *   >
- *     <MenuIcon />
- *   </Button>
- */
 export default function MenuIcon({ size = 24, ...props }: MenuIconProps) {
   return (
     <svg
@@ -27,6 +13,7 @@ export default function MenuIcon({ size = 24, ...props }: MenuIconProps) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
+      focusable="false"
       {...props}
     >
       <path
