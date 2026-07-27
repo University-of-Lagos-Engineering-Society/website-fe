@@ -139,3 +139,9 @@
     @apply font-sans;
   }
 }
+
+@layer components {
+  .px-section {
+    @apply xs:px-[4.1%] px-4 lg:px-[4.5%] xl:px-[7.778%];
+  }
+}

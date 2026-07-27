@@ -8,15 +8,31 @@ import { MessageIcon } from './message';
 import { TikTokIcon } from './tiktok';
 import { TwitterIcon } from './twitter';
 import { YoutubeIcon } from './youtube';
+import { TargetIcon } from './target';
+import { BadgeIcon } from './badge';
+import { CommunityIcon } from './community';
+import { InnovationIcon } from './innovation';
+import { AdvocacyIcon } from './Advocacy';
+import { ChartIcon } from './chart';
+import { ExcellenceIcon } from './excellence';
+import { IntegrityIcon } from './integrity';
 
 export {
+  AdvocacyIcon,
   MenuIcon,
+  BadgeIcon,
+  ChartIcon,
   CloseIcon,
+  CommunityIcon,
+  ExcellenceIcon,
   FacebookIcon,
+  InnovationIcon,
   InstagramIcon,
+  IntegrityIcon,
   LinkedinIcon,
   LocationIcon,
   MessageIcon,
+  TargetIcon,
   TikTokIcon,
   TwitterIcon,
   YoutubeIcon,
