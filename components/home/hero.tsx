@@ -67,7 +67,7 @@ const Hero = () => {
           </div>
           <div className="align-center flex flex-col justify-center text-center text-gray-50">
             <span className="font-sans text-3xl leading-tight font-normal tracking-normal sm:text-4xl md:text-5xl lg:text-6xl/15">
-              5
+              6
             </span>
             <span className="font-sans text-[11px]/7 font-medium tracking-[0.7px] sm:text-xs lg:text-[14px]">
               SUB BODIES
