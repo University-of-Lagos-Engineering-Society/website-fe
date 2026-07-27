@@ -21,5 +21,4 @@ export const SOCIALS = [
     href: 'https://ng.linkedin.com/company/theunilagengineer',
     Icon: LinkedinIcon,
   },
-  { name: 'Facebook', href: '#', Icon: FacebookIcon },
 ];
