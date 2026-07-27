@@ -1,4 +1,4 @@
-import { Calendar, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from 'lucide-react';
 
 export interface EventCardDetails {
   category: string;
@@ -15,23 +15,14 @@ interface EventCardProps {
   imageAlt?: string;
 }
 
-export default function EventCard({
-  details,
-  imageUrl,
-  imageAlt = "",
-}: EventCardProps) {
-  const { category, title, date, description, learnMoreHref, onLearnMoreClick } =
-    details;
+export default function EventCard({ details, imageUrl, imageAlt = '' }: EventCardProps) {
+  const { category, title, date, description, learnMoreHref, onLearnMoreClick } = details;
 
   return (
-    <div className="w-full max-w-sm mx-auto sm:mx-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-slate-200 bg-transparent shadow-sm sm:mx-0">
       {/* Image */}
-      <div className="aspect-[4/3] w-full overflow-hidden">
-        <img
-          src={imageUrl}
-          alt={imageAlt}
-          className="h-full w-full object-cover"
-        />
+      <div className="aspect-4/3 w-full overflow-hidden">
+        <img src={imageUrl} alt={imageAlt} className="h-full w-full object-cover" />
       </div>
 
       {/* Content */}
@@ -48,7 +39,7 @@ export default function EventCard({
         <p className="text-slate-600">{description}</p>
 
         <a
-          href={learnMoreHref ?? "#"}
+          href={learnMoreHref ?? '#'}
           onClick={onLearnMoreClick}
           className="inline-flex items-center gap-1.5 pt-1 text-sm font-medium text-slate-900 transition-colors hover:text-emerald-600"
         >

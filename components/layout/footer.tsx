@@ -35,7 +35,7 @@ export function Footer() {
                         rel="noopener noreferrer"
                         aria-label={`Visit our ${name} page (opens in a new tab)`}
                         title={name}
-                        className="xs:size-10 inline-block size-8"
+                        className="inline-block size-10"
                       >
                         <Icon className="w-full" />
                       </a>

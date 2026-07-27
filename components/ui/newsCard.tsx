@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react';
 
 export interface NewsCardDetails {
   date: string;
@@ -14,22 +14,14 @@ interface NewsCardProps {
   imageAlt?: string;
 }
 
-export default function NewsCard({
-  details,
-  imageUrl,
-  imageAlt = "",
-}: NewsCardProps) {
+export default function NewsCard({ details, imageUrl, imageAlt = '' }: NewsCardProps) {
   const { date, title, description, readMoreHref, onReadMoreClick } = details;
 
   return (
-    <div className="w-full max-w-[592px] mx-auto sm:mx-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div className="mx-auto w-full max-w-148 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm sm:mx-0">
       {/* Image */}
-      <div className="aspect-[16/10] w-full overflow-hidden">
-        <img
-          src={imageUrl}
-          alt={imageAlt}
-          className="h-full w-full object-cover"
-        />
+      <div className="aspect-16/10 w-full overflow-hidden">
+        <img src={imageUrl} alt={imageAlt} className="h-full w-full object-cover" />
       </div>
 
       {/* Content */}
@@ -41,7 +33,7 @@ export default function NewsCard({
         <p className="text-slate-600">{description}</p>
 
         <a
-          href={readMoreHref ?? "#"}
+          href={readMoreHref ?? '#'}
           onClick={onReadMoreClick}
           className="inline-flex items-center gap-1.5 pt-1 text-sm font-medium text-slate-900 transition-colors hover:text-emerald-600"
         >
