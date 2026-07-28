@@ -36,7 +36,7 @@ export default function EventCard({ details, imageUrl, imageAlt = '' }: EventCar
           <span>{date}</span>
         </div>
 
-        <p className="text-slate-600">{description}</p>
+        <p className="whitespace-pre-line text-slate-600">{description}</p>
 
         <a
           href={learnMoreHref ?? '#'}

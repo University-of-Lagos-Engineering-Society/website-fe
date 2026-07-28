@@ -2,6 +2,7 @@ import { PageBanner } from '@/components/section/PageBanner';
 import { WhoWeAre } from '@/components/about-us/WhoWeAre';
 import { OurMissionAndVision } from '@/components/about-us/MissionAndVision';
 import { OurCoreValues } from '@/components/about-us/CoreValues';
+import { FAQs } from '@/components/about-us/faqs';
 
 export default function AboutULES() {
   return (
@@ -10,6 +11,7 @@ export default function AboutULES() {
       <WhoWeAre />
       <OurMissionAndVision />
       <OurCoreValues />
+      <FAQs />
     </>
   );
 }
