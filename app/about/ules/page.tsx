@@ -3,6 +3,7 @@ import { WhoWeAre } from '@/components/about-us/WhoWeAre';
 import { OurMissionAndVision } from '@/components/about-us/MissionAndVision';
 import { OurCoreValues } from '@/components/about-us/CoreValues';
 import { FAQs } from '@/components/about-us/faqs';
+import { Questions } from '@/components/about-us/Questions';
 
 export default function AboutULES() {
   return (
@@ -12,6 +13,7 @@ export default function AboutULES() {
       <OurMissionAndVision />
       <OurCoreValues />
       <FAQs />
+      <Questions />
     </>
   );
 }
