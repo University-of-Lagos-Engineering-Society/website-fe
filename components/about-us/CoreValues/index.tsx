@@ -18,7 +18,7 @@ export function OurCoreValues() {
         Derived from the fundamental objectives and principles of the Constitution, ULES is built
         upon these six core values:
       </p>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-6">
         <CoreValuesCard
           title="Unity"
           description="Fostering a spirit of brotherhood and inclusive coexistence among all engineering students."
