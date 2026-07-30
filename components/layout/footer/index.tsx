@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { SOCIALS, QUICK_LINKS, RESOURCES, ACTIVITIES } from '../constants';
-import { LocationIcon, MessageIcon } from '../icons';
-import { NewsletterForm } from '../section/newsletter';
+import { SOCIALS, QUICK_LINKS, RESOURCES, ACTIVITIES } from '../../constants';
+import { LocationIcon, MessageIcon } from '../../icons';
+import { NewsletterForm } from './newsletter';
 
 export function Footer() {
   return (
