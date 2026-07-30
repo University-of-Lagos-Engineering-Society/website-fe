@@ -83,7 +83,14 @@ export function Header() {
                 {menu.items && (
                   <MenubarContent className="min-w-max">
                     {menu.items.map((item) => {
-                      const isChildActive = pathname === item.href;
+                      // 1. Split the path and the hash
+                      const [itemPath, itemHash] = item.href.split('#');
+
+                      // 2. Check if we are on the base path
+                      const isChildActive = pathname === itemPath;
+
+                      // 3. If on the same page, ONLY use the hash. If on a different page, use the full href.
+                      const finalHref = isChildActive && itemHash ? `#${itemHash}` : item.href;
 
                       return (
                         <MenubarItem
@@ -96,7 +103,7 @@ export function Header() {
                               ? 'text-primary bg-primary/5 focus:text-primary focus:bg-primary/10'
                               : 'text-foreground focus:bg-muted',
                           )}
-                          onClick={() => router.push(item.href)}
+                          onClick={() => router.push(finalHref)}
                         >
                           {item.label}
                         </MenubarItem>

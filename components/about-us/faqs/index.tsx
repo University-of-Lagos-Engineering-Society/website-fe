@@ -3,7 +3,7 @@ import { FAQ_ITEMS } from '../../constants/faqs';
 
 export function FAQs() {
   return (
-    <section className="px-section py-16">
+    <section className="px-section py-16" id="faqs">
       <h2 className="text-center text-5xl/15 font-medium tracking-[-0.02em]">
         Frequently Asked Questions
       </h2>
