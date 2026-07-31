@@ -1,1 +1,1 @@
-export type PageBannerProps = Readonly<{ title: string; tagline: string }>;
+export type PageBannerProps = Readonly<{ id?: string; title: string; tagline: string }>;

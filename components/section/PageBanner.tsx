@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import type { PageBannerProps } from '../types';
 
-export function PageBanner({ title, tagline }: PageBannerProps) {
+export function PageBanner({ id, title, tagline }: PageBannerProps) {
   return (
-    <section className="relative px-[9.8264%] py-16 text-center">
+    <section id={id} className="relative px-[9.8264%] py-16 text-center">
       <Image
         src="/page-banner.png"
         alt=""
         fill
         priority
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
         className="-z-10 hidden object-cover object-center md:block"
       />
       <Image
