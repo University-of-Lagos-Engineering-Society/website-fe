@@ -16,6 +16,7 @@ import { AdvocacyIcon } from './Advocacy';
 import { ChartIcon } from './chart';
 import { ExcellenceIcon } from './excellence';
 import { IntegrityIcon } from './integrity';
+import { PhoneIcon } from './phone';
 
 export {
   AdvocacyIcon,
@@ -32,6 +33,7 @@ export {
   LinkedinIcon,
   LocationIcon,
   MessageIcon,
+  PhoneIcon,
   TargetIcon,
   TikTokIcon,
   TwitterIcon,
