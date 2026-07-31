@@ -5,8 +5,10 @@ import { HIGHLIGHTED_NEWS_ITEMS } from './news';
 import { HIGHLIGHTED_EVENT_ITEMS } from './events';
 import { HIGHLIGHTED_POST_ITEMS } from './blogs';
 import { FAQ_ITEMS } from './faqs';
+import { EXCOS_DATA } from './excos';
 
 export {
+  EXCOS_DATA,
   FAQ_ITEMS,
   HIGHLIGHTED_EVENT_ITEMS,
   HIGHLIGHTED_NEWS_ITEMS,
