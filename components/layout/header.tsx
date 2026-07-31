@@ -1,10 +1,10 @@
 // src/components/navigation/header.tsx
-'use client'; // If you need interactive client state (toggles, mobile menus)
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { NAV_ITEMS } from '../constants';
@@ -24,6 +24,9 @@ export function Header() {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Controlled state for the mobile sheet so we can close it on navigation.
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
   // State to track the currently open mobile accordion. Null means all are closed.
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null);
 
@@ -31,6 +34,19 @@ export function Header() {
   const toggleAccordion = (trigger: string) => {
     setOpenMobileAccordion((prev) => (prev === trigger ? null : trigger));
   };
+
+  // Close the sheet and reset the accordion so it reopens in a clean state.
+  const closeMobileNav = () => {
+    setIsMobileOpen(false);
+    setOpenMobileAccordion(null);
+  };
+
+  // Safety net: any route change collapses the sheet. Hash-only navigation does not
+  // change `pathname`, which is why the explicit onClick handlers below still matter.
+  useEffect(() => {
+    setIsMobileOpen(false);
+    setOpenMobileAccordion(null);
+  }, [pathname]);
 
   return (
     <header className="bg-background sticky top-0 z-50 w-full border-b">
@@ -125,7 +141,7 @@ export function Header() {
         </Button>
 
         {/* --- MOBILE NAVIGATION (Hidden on >= 1024px) --- */}
-        <Sheet>
+        <Sheet open={isMobileOpen} onOpenChange={setIsMobileOpen}>
           <SheetTrigger
             render={
               <Button
@@ -193,6 +209,7 @@ export function Header() {
                       onClick={() => {
                         if (menu.href) {
                           router.push(menu.href);
+                          closeMobileNav();
                         } else if (menu.items) {
                           toggleAccordion(menu.trigger);
                         }
@@ -221,11 +238,18 @@ export function Header() {
                       >
                         <div className="border-primary/20 ml-1 flex flex-col gap-4 border-l-2 py-1 pl-4">
                           {menu.items.map((item) => {
-                            const isChildActive = pathname === item.href;
+                            // Mirror the desktop logic so hash links scroll in-page
+                            // instead of triggering a full route push.
+                            const [itemPath, itemHash] = item.href.split('#');
+                            const isChildActive = pathname === itemPath;
+                            const finalHref =
+                              isChildActive && itemHash ? `#${itemHash}` : item.href;
+
                             return (
                               <Link
                                 key={item.href}
-                                href={item.href}
+                                href={finalHref}
+                                onClick={closeMobileNav}
                                 className={cn(
                                   'py-1 text-sm transition-colors',
                                   isChildActive
@@ -247,7 +271,13 @@ export function Header() {
 
             {/* Mobile Call to Action */}
             <div className="mt-auto pt-4 pb-8">
-              <Button className="w-full text-white" onClick={() => router.push('/contact')}>
+              <Button
+                className="w-full text-white"
+                onClick={() => {
+                  router.push('/contact');
+                  closeMobileNav();
+                }}
+              >
                 Contact Us
               </Button>
             </div>
