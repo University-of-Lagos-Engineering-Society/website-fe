@@ -1,4 +1,5 @@
 import EventCard from '@/components/ui/eventCard';
+import { isEventPast } from '@/lib/utils';
 import { HIGHLIGHTED_EVENT_ITEMS } from '../constants';
 
 const PastEvents = () => {
@@ -8,7 +9,7 @@ const PastEvents = () => {
         Past Events
       </h1>
       <div className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3">
-        {HIGHLIGHTED_EVENT_ITEMS.filter((event) => event.status === 'past').map((event) => (
+        {HIGHLIGHTED_EVENT_ITEMS.filter((event) => isEventPast(event.timestamp)).map((event) => (
           <EventCard
             key={event.id}
             details={event.details}
