@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, Calendar, Clock, MapPin } from 'lucide-react';
 import { HIGHLIGHTED_EVENT_ITEMS } from '@/components/constants';
 import { Button } from '@/components/ui/button';
+import { isEventPast } from '@/lib/utils';
 
 interface EventDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -17,8 +18,9 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
     notFound();
   }
 
-  const { details, imageUrl, imageAlt, time, venue, status } = event;
+  const { details, imageUrl, imageAlt, time, venue, timestamp } = event;
   const { title, description, date, category } = details;
+  const isPast = isEventPast(timestamp);
   const aboutParagraphs = description
     .split('\n')
     .map((paragraph) => paragraph.trim())
@@ -47,7 +49,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
 
       <div className="bg-white px-4 py-8 md:py-10 lg:px-[4.5%] lg:py-12 xl:px-[7.778%]">
         <span className="inline-block rounded-full bg-emerald-600 px-4 py-1.5 text-sm font-medium text-white">
-          {status === 'past' ? 'Past Event' : 'Upcoming Event'}
+          {isPast ? 'Past Event' : 'Upcoming Event'}
         </span>
         <p className="mt-3 text-sm font-medium text-emerald-600">{category}</p>
         <h1 className="mt-1 text-3xl font-semibold text-[#1A2B56] sm:text-4xl lg:text-5xl">{title}</h1>
@@ -83,9 +85,9 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
         </div>
 
         <div className="relative mt-8 aspect-16/5 w-full overflow-hidden rounded-2xl">
-          <Image src={imageUrl} alt={imageAlt} fill sizes="100vw" className="object-cover max-h-[384px]" />
-          <a href="/activities/gallery" className="absolute right-4 bottom-4">
-            <Button variant="secondary">View Full Gallery</Button>
+          <Image src={imageUrl} alt={imageAlt} fill sizes="100vw" className="object-cover max-h-96" />
+          <a href="#" className="absolute right-4 bottom-4 cursor-not-allowed">
+            <Button variant="secondary" disabled>View Full Gallery</Button>
           </a>
         </div>
 
@@ -108,18 +110,21 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
                   key={index}
                   className={`aspect-square overflow-hidden md:aspect-auto ${colSpan} ${height}`}
                 >
-                  <img
+                  <Image
+                    width={300}
+                    height={300}
                     src={src}
                     alt={`${title} gallery photo ${index + 1}`}
                     className="h-full w-full object-cover"
+                    loading='eager'
                   />
                 </div>
               );
             })}
           </div>
           <div className="mt-6 flex justify-center">
-            <Link href="/activities/gallery">
-              <Button variant="secondary" className="px-[65px]">View All</Button>
+            <Link href="#" className="cursor-not-allowed">
+              <Button variant="secondary" className="px-16.25" disabled>View All</Button>
             </Link>
           </div>
         </div>
