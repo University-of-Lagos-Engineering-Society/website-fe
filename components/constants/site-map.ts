@@ -36,14 +36,14 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Departmental Bodies', href: '/associations#departmental' },
     ],
   },
-  // {
-  //   trigger: 'Student Aids',
-  //   items: [
-  //     { label: 'Resources', href: '/student-aids/resources' },
-  //     { label: 'CGPA Calculator', href: '/student-aids/cgpa-calculator' },
-  //     { label: 'Feedback', href: '/student-aids/feedback' },
-  //   ],
-  // },
+  {
+    trigger: 'Student Aids',
+    items: [
+      // { label: 'Resources', href: '/student-aids/resources' },
+      { label: 'CGPA Calculator', href: 'https://gpai.com.ng' },
+      // { label: 'Feedback', href: '/student-aids/feedback' },
+    ],
+  },
 ];
 
 export const QUICK_LINKS: NavItem[] = [
@@ -56,7 +56,7 @@ export const QUICK_LINKS: NavItem[] = [
 
 export const RESOURCES: NavItem[] = [
   { trigger: 'Past Questions', href: '/student-aids/PQs' },
-  { trigger: 'CGPA Calculator', href: '/student-aids/cgpa-calculator' },
+  { trigger: 'CGPA Calculator', href: 'https://gpai.com.ng' },
   { trigger: 'Contact Us', href: '/contact' },
   { trigger: 'Feedback', href: '/student-aids/feedback' },
 ];
