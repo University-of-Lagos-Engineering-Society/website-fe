@@ -7,9 +7,31 @@ import { BLOG_ITEMS, SITE_URL } from '@/components/constants';
 import { AboutAuthor } from '@/components/blog/AboutAuthor';
 import { ContinueReading } from '@/components/blog/ContinueReading';
 import { ShareNews } from '@/components/news/ShareNews';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { articleJsonLd, pageMetadata } from '@/lib/seo';
 
 interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+  return BLOG_ITEMS.map((item) => ({ slug: item.slug }));
+}
+
+export async function generateMetadata({ params }: BlogDetailPageProps) {
+  const { slug } = await params;
+  const post = BLOG_ITEMS.find((item) => item.slug === slug);
+  if (!post) return {};
+
+  return pageMetadata({
+    title: post.details.title,
+    description: post.details.description,
+    path: `/stories/blog/${slug}`,
+    image: post.imageUrl,
+    type: 'article',
+    authors: [post.details.author],
+    keywords: ['ULES blog', post.category, post.details.title],
+  });
 }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
@@ -34,6 +56,16 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   return (
     <>
+      <JsonLd
+        data={articleJsonLd({
+          title,
+          description: details.description,
+          path: `/stories/blog/${slug}`,
+          image: imageUrl,
+          author,
+        })}
+      />
+
       <div className="px-section py-6 md:py-8 lg:py-11">
         <Link
           href="/stories/blog"

@@ -7,9 +7,28 @@ import { GALLERY_ALBUMS, HIGHLIGHTED_EVENT_ITEMS } from '@/components/constants'
 import { PhotoGrid } from '@/components/gallery/PhotoGrid';
 import { EmptyState } from '@/components/ui/empty-state';
 import { isEventPast } from '@/lib/utils';
+import { pageMetadata } from '@/lib/seo';
 
 interface GalleryDetailPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+  return GALLERY_ALBUMS.map((album) => ({ slug: album.slug }));
+}
+
+export async function generateMetadata({ params }: GalleryDetailPageProps) {
+  const { slug } = await params;
+  const album = GALLERY_ALBUMS.find((item) => item.slug === slug);
+  if (!album) return {};
+
+  return pageMetadata({
+    title: album.title,
+    description: `Photos from ${album.title} — University of Lagos Engineering Society.`,
+    path: `/activities/gallery/${slug}`,
+    image: album.coverImage,
+    keywords: ['ULES gallery', album.title],
+  });
 }
 
 export default async function GalleryDetailPage({ params }: GalleryDetailPageProps) {

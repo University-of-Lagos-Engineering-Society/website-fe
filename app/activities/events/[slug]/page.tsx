@@ -5,9 +5,29 @@ import { ArrowLeft, Calendar, Clock, MapPin } from 'lucide-react';
 import { HIGHLIGHTED_EVENT_ITEMS, findAlbumForEvent } from '@/components/constants';
 import { Button } from '@/components/ui/button';
 import { isEventPast } from '@/lib/utils';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { eventJsonLd, pageMetadata } from '@/lib/seo';
 
 interface EventDetailPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export function generateStaticParams() {
+  return HIGHLIGHTED_EVENT_ITEMS.map((item) => ({ slug: item.slug }));
+}
+
+export async function generateMetadata({ params }: EventDetailPageProps) {
+  const { slug } = await params;
+  const item = HIGHLIGHTED_EVENT_ITEMS.find((event) => event.slug === slug);
+  if (!item) return {};
+
+  return pageMetadata({
+    title: item.details.title,
+    description: item.details.description.split('\n')[0]?.trim() ?? '',
+    path: `/activities/events/${slug}`,
+    image: item.imageUrl,
+    keywords: ['ULES events', item.details.title, item.details.category],
+  });
 }
 
 export default async function EventDetailPage({ params }: EventDetailPageProps) {
@@ -43,6 +63,17 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
 
   return (
     <>
+      <JsonLd
+        data={eventJsonLd({
+          name: title,
+          description: aboutParagraphs[0] ?? '',
+          path: `/activities/events/${slug}`,
+          image: imageUrl,
+          startDate: timestamp,
+          venue,
+        })}
+      />
+
       <div className="border-b border-slate-200 bg-white px-4 py-4 lg:px-[4.5%] xl:px-[7.778%]">
         <Link
           href="/activities/events"

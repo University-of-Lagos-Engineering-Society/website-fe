@@ -1,6 +1,7 @@
 import { AlbumCard } from '@/components/gallery/AlbumCard';
 import { EmptyState } from '@/components/ui/empty-state';
 import { GALLERY_ALBUMS } from '@/components/constants';
+import { Stagger, StaggerItem } from '@/components/motion/Reveal';
 
 export function AlbumGrid() {
   return (
@@ -14,9 +15,9 @@ export function AlbumGrid() {
         // Explicit columns rather than the usual auto-fit grid: auto-fit
         // collapses unused tracks, which would stretch a single album across
         // the full row. Matches the frame's fixed three-up.
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {GALLERY_ALBUMS.map((album) => (
-            <li key={album.id}>
+            <StaggerItem key={album.id}>
               <AlbumCard
                 slug={album.slug}
                 title={album.title}
@@ -24,9 +25,9 @@ export function AlbumGrid() {
                 coverAlt={album.coverAlt}
                 photoCount={album.photos.length}
               />
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       )}
     </section>
   );

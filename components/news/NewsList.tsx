@@ -1,6 +1,7 @@
 import { NewsListCard } from '@/components/news/NewsListCard';
 import { EmptyState } from '@/components/ui/empty-state';
 import { NEWS_ITEMS } from '@/components/constants';
+import { Stagger, StaggerItem } from '@/components/motion/Reveal';
 
 export function NewsList() {
   return (
@@ -13,18 +14,18 @@ export function NewsList() {
       ) : (
         // Rows are full-width and stack vertically, so there's no column count
         // to manage — a flex column is the whole layout. 32px gap from the frame.
-        <ul className="flex flex-col gap-8">
+        <Stagger className="flex flex-col gap-8">
           {NEWS_ITEMS.map((item) => (
-            <li key={item.id}>
+            <StaggerItem key={item.id}>
               <NewsListCard
                 slug={item.slug}
                 details={item.details}
                 imageUrl={item.imageUrl}
                 imageAlt={item.imageAlt}
               />
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       )}
     </section>
   );

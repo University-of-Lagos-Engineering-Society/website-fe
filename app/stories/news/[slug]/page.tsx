@@ -5,6 +5,8 @@ import { ArrowLeft, Calendar } from 'lucide-react';
 
 import { NEWS_ITEMS, SITE_URL } from '@/components/constants';
 import { ShareNews } from '@/components/news/ShareNews';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { articleJsonLd, pageMetadata } from '@/lib/seo';
 
 interface NewsDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -38,6 +40,26 @@ function toBlocks(body: string): Block[] {
     });
 }
 
+/** Prerenders every story, so crawlers get static HTML instead of on-demand SSR. */
+export function generateStaticParams() {
+  return NEWS_ITEMS.map((item) => ({ slug: item.slug }));
+}
+
+export async function generateMetadata({ params }: NewsDetailPageProps) {
+  const { slug } = await params;
+  const item = NEWS_ITEMS.find((newsItem) => newsItem.slug === slug);
+  if (!item) return {};
+
+  return pageMetadata({
+    title: item.details.title,
+    description: item.details.description,
+    path: `/stories/news/${slug}`,
+    image: item.imageUrl,
+    type: 'article',
+    keywords: ['ULES digest', 'ULES news', item.details.title],
+  });
+}
+
 export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
   const { slug } = await params;
   const item = NEWS_ITEMS.find((newsItem) => newsItem.slug === slug);
@@ -52,6 +74,15 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
   return (
     <>
+      <JsonLd
+        data={articleJsonLd({
+          title,
+          description: details.description,
+          path: `/stories/news/${slug}`,
+          image: imageUrl,
+        })}
+      />
+
       <div className="px-section py-6 md:py-8 lg:py-11">
         <Link
           href="/stories/news"

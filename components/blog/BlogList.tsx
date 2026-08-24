@@ -6,6 +6,7 @@ import { BlogCard } from '@/components/blog/BlogCard';
 import { EmptyState } from '@/components/ui/empty-state';
 import { BLOG_CATEGORIES, BLOG_ITEMS, type BlogCategory } from '@/components/constants';
 import { cn } from '@/lib/utils';
+import { Stagger, StaggerItem } from '@/components/motion/Reveal';
 
 /**
  * Blog index: category pills over a three-up grid.
@@ -66,18 +67,18 @@ export function BlogList() {
         // collapses unused tracks, so a category with one or two posts would
         // stretch those cards across the full row instead of leaving the
         // remaining columns empty. Matches the frame's fixed three-up.
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <li key={post.id}>
+            <StaggerItem key={post.id}>
               <BlogCard
                 slug={post.slug}
                 details={post.details}
                 imageUrl={post.imageUrl}
                 imageAlt={post.imageAlt}
               />
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       )}
     </section>
   );
