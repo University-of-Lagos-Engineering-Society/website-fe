@@ -1,5 +1,6 @@
 import { BodyCard } from './BodyCard';
 import { DEPARTMENTAL_BODIES } from '../constants';
+import { Stagger, StaggerItem } from '@/components/motion/Reveal';
 
 export function DepartmentalBodies() {
   return (
@@ -10,16 +11,16 @@ export function DepartmentalBodies() {
         matching their own row. Card bodies vary a lot in length, and flex
         stretching is per-line, which left each row a different height.
       */}
-      <ul className="3xl:gap-x-4 grid auto-rows-fr grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] justify-items-center gap-x-4 gap-y-8 2xl:gap-x-3.5">
+      <Stagger className="3xl:gap-x-4 grid auto-rows-fr grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] justify-items-center gap-x-4 gap-y-8 2xl:gap-x-3.5">
         {DEPARTMENTAL_BODIES.map((body) => (
-          <li
+          <StaggerItem
             key={body.id}
             className="xs:max-w-90 sm:max-w-97.25 xl:max-w-88 2xl:max-w-97.25 h-full w-full md:max-w-85"
           >
             <BodyCard {...body} />
-          </li>
+          </StaggerItem>
         ))}
-      </ul>
+      </Stagger>
     </section>
   );
 }

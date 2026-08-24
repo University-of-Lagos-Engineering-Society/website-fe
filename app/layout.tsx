@@ -93,6 +93,16 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn('h-full font-sans antialiased', inter.variable, montserrat.variable)}
     >
+      <head>
+        {/*
+          Framer renders each reveal's `initial` (hidden) state into the server
+          HTML to avoid a flash. With JavaScript off, nothing ever animates it
+          back, so the page would be blank. This puts it back.
+        */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body className="flex min-h-full flex-col">
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
