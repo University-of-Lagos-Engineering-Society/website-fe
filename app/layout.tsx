@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { PageLoader } from '@/components/layout/PageLoader';
+import { EventCountdownBanner } from '@/components/layout/EventCountdownBanner';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { SITE, organizationJsonLd, websiteJsonLd } from '@/lib/seo';
 
@@ -110,7 +111,17 @@ export default function RootLayout({
         <PageLoader />
 
         <Header />
-        <main className="flex-1">{children}</main>
+
+        {/*
+          `relative` so the countdown banner can sit absolutely at the top of
+          this block — directly under the sticky navbar, overlaying the page
+          rather than pushing the hero down, and scrolling away with content.
+        */}
+        <div className="relative flex-1">
+          <EventCountdownBanner />
+          <main>{children}</main>
+        </div>
+
         <Footer />
       </body>
     </html>

@@ -7,6 +7,8 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { isExternalHref } from '@/lib/links';
+import { SmartLink } from '../ui/smart-link';
 import { NAV_ITEMS } from '../constants';
 import { MenuIcon, CloseIcon } from '../icons';
 import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from '../ui/menubar';
@@ -23,6 +25,21 @@ import {
 export function Header() {
   const router = useRouter();
   const pathname = usePathname();
+
+
+  /**
+   * `router.push` can't open a new tab, and pushing an off-site URL through the
+   * App Router is a hard reload at best. Send external destinations to
+   * `window.open` with `noopener,noreferrer` — the window-feature equivalent of
+   * the rel attribute, and the part that actually severs `window.opener`.
+   */
+  const navigate = (href: string) => {
+    if (isExternalHref(href)) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    router.push(href);
+  };
 
   // Controlled state for the mobile sheet so we can close it on navigation.
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -81,7 +98,7 @@ export function Header() {
                     'text-center font-sans text-sm font-normal tracking-normal whitespace-nowrap',
                     isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground',
                   )}
-                  onClick={() => menu.href && router.push(menu.href)}
+                  onClick={() => menu.href && navigate(menu.href)}
                 >
                   {menu.trigger}
 
@@ -119,7 +136,7 @@ export function Header() {
                               ? 'text-primary bg-primary/5 focus:text-primary focus:bg-primary/10'
                               : 'text-foreground focus:bg-muted',
                           )}
-                          onClick={() => router.push(finalHref)}
+                          onClick={() => navigate(finalHref)}
                         >
                           {item.label}
                         </MenubarItem>
@@ -208,7 +225,7 @@ export function Header() {
                       )}
                       onClick={() => {
                         if (menu.href) {
-                          router.push(menu.href);
+                          navigate(menu.href);
                           closeMobileNav();
                         } else if (menu.items) {
                           toggleAccordion(menu.trigger);
@@ -246,7 +263,7 @@ export function Header() {
                               isChildActive && itemHash ? `#${itemHash}` : item.href;
 
                             return (
-                              <Link
+                              <SmartLink
                                 key={item.href}
                                 href={finalHref}
                                 onClick={closeMobileNav}
@@ -258,7 +275,7 @@ export function Header() {
                                 )}
                               >
                                 {item.label}
-                              </Link>
+                              </SmartLink>
                             );
                           })}
                         </div>

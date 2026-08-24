@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { SOCIALS, QUICK_LINKS, RESOURCES, ACTIVITIES } from '../../constants';
 import { LocationIcon, MessageIcon, PhoneIcon } from '../../icons';
 import { NewsletterForm } from './newsletter';
+import { SmartLink } from '../../ui/smart-link';
 
 export function Footer() {
   return (
@@ -103,7 +104,7 @@ export function Footer() {
               <ul>
                 {QUICK_LINKS.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href ?? '#'}>{link.trigger}</Link>
+                    <SmartLink href={link.href ?? '#'}>{link.trigger}</SmartLink>
                   </li>
                 ))}
               </ul>
@@ -115,7 +116,7 @@ export function Footer() {
               <ul>
                 {RESOURCES.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href ?? '#'}>{link.trigger}</Link>
+                    <SmartLink href={link.href ?? '#'}>{link.trigger}</SmartLink>
                   </li>
                 ))}
               </ul>
@@ -127,7 +128,7 @@ export function Footer() {
               <ul>
                 {ACTIVITIES.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href ?? '#'}>{link.trigger}</Link>
+                    <SmartLink href={link.href ?? '#'}>{link.trigger}</SmartLink>
                   </li>
                 ))}
               </ul>
