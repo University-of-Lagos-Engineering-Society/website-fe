@@ -1,15 +1,67 @@
 export const HIGHLIGHTED_EVENT_ITEMS = [
   {
+    id: 6,
+    slug: 'pidec-2026',
+    time: '9:00 AM',
+    timestamp: '2026-08-28T12:00:00',
+    venue: 'Prof. J.F. Ajayi Hall, UNILAG',
+    details: {
+      title: 'PIDEC 1.0 Grand Finale',
+      description:
+        "The battle to be called the PIDEC 1.0 champion will come to a conclusion on the 28th August, 2026. Dignitaries, Important People in the Engineering World and seeing departments come up with brilliant innovations, PIDEC 1.0 is looking exciting and we can't wait to see you there!\nRegister here: https://www.pidec.com.ng/finale",
+      date: 'August 28th, 2026',
+      category: 'Annual Event',
+      learnMoreHref: '/activities/events/pidec-2026',
+    },
+    imageUrl: '/events/pidec-2026.jpeg',
+    imageAlt: 'PIDEC 1.0 Grand Finale',
+  },
+  {
+    id: 5,
+    slug: 'sees-lightup-conference-2026',
+    time: '9:00 AM',
+    timestamp: '2026-08-27T12:00:00',
+    venue: 'Jelili Omotola Multipurpose Hall, UNILAG',
+    details: {
+      title: 'SEES LIGHT UP 2.0',
+      description:
+      "Ideas are cheap. Impact is the hard part. 💚⚡\nSEES LIGHT UP CONFERENCE 2.0 is all about Igniting Innovation, bridging Ideas to Impact.\nIt is completely FREE and open to every student.\nRegister 👉 https://bit.ly/SEESLightUpConference",
+      date: 'August 27th, 2026',
+      category: 'Annual Event',
+      learnMoreHref: '/activities/events/sees-lightup-conference-2026',
+    },
+    imageUrl: '/events/lightup-conference-2026.jpeg',
+    imageAlt: 'SEES LIGHT UP CONFERENCE 2.0',
+  },
+  {
+    id: 4,
+    slug: 'systems-synergy-2026',
+    time: '9:00 AM',
+    timestamp: '2026-08-27T12:00:00',
+    venue: 'To Be Disclosed',
+    details: {
+      title: 'SYSTEMS SYNERGY 2.0',
+      description:
+
+      "ARE YOU READY FOR THE WHOLE PICTURE ⁉️\nAccording to Beyoncé, the principle of synergy states that the WHOLE system is always greater than the sum of its individual parts 🔄\nOn August 27th, everything we’ve been building comes together 🚀\nGet ready for SYSTEMS SYNERGY 2.0",
+      date: 'August 27th, 2026',
+      category: 'Annual Event',
+      learnMoreHref: '/activities/events/systems-synergy-2026',
+    },
+    imageUrl: '/events/systems-synergy-2026.jpeg',
+    imageAlt: 'SYSTEMS SYNERGY 2.0',
+  },
+  {
     id: 3,
     slug: 'dinner-awards-2026',
     time: '7:00 PM',
-    timestamp: '2026-08-24T19:00:00',
-    venue: 'Faculty of Engineering Auditorium',
+    timestamp: '2026-09-01T19:00:00',
+    venue: 'To Be Disclosed',
     details: {
       title: 'ULES Dinner & Awards 2026',
       description:
-        "What's a better combo than an Award Gala with a Casino Experience? \n Don't miss the Faculty of Engineering's Dinner Awards 2026, themed \"VIVA LAS VEGAS\" \n Come in your casino themed outfits and experience Las Vegas in Lagos.",
-      date: 'August 21st-24th, 2026',
+        "VIVA LAS VEGAS, A Casino Experience: ULES Dinner & Awards 2025/26.\n\n🗓️: 1st September, 2026\n⏰: 5pm\n📍: TBD\nleave the description as the same.\n\nLink to get tickets: https://forms.gle/SmuFyV1gNv23oy1BA",
+      date: 'September 1st, 2026',
       category: 'Annual Event',
       learnMoreHref: '/activities/events/dinner-awards-2026',
     },
