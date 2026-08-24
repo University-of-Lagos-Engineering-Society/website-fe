@@ -17,8 +17,8 @@ export const NAV_ITEMS: NavItem[] = [
     trigger: 'Activities',
     items: [
       { label: 'Events', href: '/activities/events' },
-      { label: 'Projects', href: '/activities/projects' },
-      { label: 'Gallery', href: '/activities/gallery' },
+      // { label: 'Projects', href: '/activities/projects' },
+      // { label: 'Gallery', href: '/activities/gallery' },
     ],
   },
   {
@@ -50,20 +50,20 @@ export const QUICK_LINKS: NavItem[] = [
   { trigger: 'Home', href: '/' },
   { trigger: 'About Us', href: '/about/ules' },
   { trigger: 'EXCO', href: '/about/leadership' },
-  { trigger: 'Events', href: '/activities/events' },
   { trigger: 'Associations', href: '/associations' },
 ];
 
 export const RESOURCES: NavItem[] = [
-  { trigger: 'Past Questions', href: '/student-aids/PQs' },
+  // { trigger: 'Past Questions', href: '/student-aids/PQs' },
   { trigger: 'CGPA Calculator', href: 'https://gpai.com.ng' },
   { trigger: 'Contact Us', href: '/contact' },
-  { trigger: 'Feedback', href: '/student-aids/feedback' },
+  // { trigger: 'Feedback', href: '/student-aids/feedback' },
 ];
 
 export const ACTIVITIES: NavItem[] = [
-  { trigger: 'Projects', href: '/activities/projects' },
-  { trigger: 'Gallery', href: '/activities/gallery' },
+  // { trigger: 'Projects', href: '/activities/projects' },
+  // { trigger: 'Gallery', href: '/activities/gallery' },
+  { trigger: 'Events', href: '/activities/events' },
   { trigger: 'Blog', href: '/stories/blog' },
   { trigger: 'News', href: '/stories/news' },
 ];
