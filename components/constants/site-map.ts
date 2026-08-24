@@ -18,7 +18,7 @@ export const NAV_ITEMS: NavItem[] = [
     items: [
       { label: 'Events', href: '/activities/events' },
       // { label: 'Projects', href: '/activities/projects' },
-      // { label: 'Gallery', href: '/activities/gallery' },
+      { label: 'Gallery', href: '/activities/gallery' },
     ],
   },
   {
@@ -62,7 +62,7 @@ export const RESOURCES: NavItem[] = [
 
 export const ACTIVITIES: NavItem[] = [
   // { trigger: 'Projects', href: '/activities/projects' },
-  // { trigger: 'Gallery', href: '/activities/gallery' },
+  { trigger: 'Gallery', href: '/activities/gallery' },
   { trigger: 'Events', href: '/activities/events' },
   { trigger: 'Blog', href: '/stories/blog' },
   { trigger: 'News', href: '/stories/news' },
