@@ -12,7 +12,7 @@ const Events = () => {
           <span className="xs:inline hidden">Upcoming </span>
           Events
         </h1>
-        <Link href={'#'}>
+        <Link href="/activities/events">
           <Button
             variant={'ghost'}
             className="tracking-0 flex h-auto items-center gap-1 py-0 text-sm/6 text-[#1A2B56] sm:text-base"

@@ -11,7 +11,7 @@ const News = () => {
         <h1 className="text-2xl leading-tight font-medium text-[#1A2B56] sm:text-[26px] lg:text-3xl/9">
           <span className="xs:inline hidden">Latest </span>News
         </h1>
-        <Link href={'#'}>
+        <Link href="/stories/news">
           <Button
             variant={'ghost'}
             className="tracking-0 flex h-auto items-center gap-1 py-0 text-sm/6 text-[#1A2B56] sm:text-base"
