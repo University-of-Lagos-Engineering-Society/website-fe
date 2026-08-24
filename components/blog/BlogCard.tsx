@@ -33,7 +33,7 @@ export function BlogCard({ slug, details, imageUrl, imageAlt }: BlogCardProps) {
 
   return (
     <Link href={`/stories/blog/${slug}`} className="block h-full">
-      <Card className="hover:border-accent h-full gap-0 overflow-hidden rounded-lg border border-gray-200 bg-white p-0 shadow-none ring-0 transition-colors">
+      <Card className="hover:border-accent hover-lift h-full gap-0 overflow-hidden rounded-lg border border-gray-200 bg-white p-0 shadow-none ring-0">
         {/* 387.4 × 192 in the frame. */}
         <div className="relative aspect-2/1 w-full shrink-0">
           <Image

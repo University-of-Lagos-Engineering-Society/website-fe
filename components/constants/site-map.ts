@@ -41,7 +41,7 @@ export const NAV_ITEMS: NavItem[] = [
     items: [
       // { label: 'Resources', href: '/student-aids/resources' },
       { label: 'CGPA Calculator', href: 'https://gpai.com.ng' },
-      // { label: 'Feedback', href: '/student-aids/feedback' },
+      { label: 'Feedback', href: '/student-aids/feedback' },
     ],
   },
 ];
@@ -57,7 +57,7 @@ export const RESOURCES: NavItem[] = [
   // { trigger: 'Past Questions', href: '/student-aids/PQs' },
   { trigger: 'CGPA Calculator', href: 'https://gpai.com.ng' },
   { trigger: 'Contact Us', href: '/contact' },
-  // { trigger: 'Feedback', href: '/student-aids/feedback' },
+  { trigger: 'Feedback', href: '/student-aids/feedback' },
 ];
 
 export const ACTIVITIES: NavItem[] = [

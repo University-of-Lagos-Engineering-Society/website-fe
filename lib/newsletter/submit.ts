@@ -1,6 +1,7 @@
 import { GENERIC_ERROR_DETAIL, type ApiResult } from '@/lib/api/errors';
 import type { SubmitFn } from '@/hooks/use-form-submission';
 import { SUBSTACK_URL } from '@/components/constants';
+import { SHEETS_ENABLED, SHEET_TABS, postToSheet } from '@/lib/sheets/submit';
 import { subscribeToSubstack } from './substack';
 import { NEWSLETTER_ERROR_TITLES } from './error-titles';
 import type { NewsletterField, NewsletterValues } from './schema';
@@ -23,6 +24,12 @@ export const submitNewsletter: SubmitFn<NewsletterValues> = async (
   // bot it was caught just tells it what to change next time.
   if ((meta.company_website ?? '').trim() !== '') {
     return { ok: true };
+  }
+
+  // Sheets wins while it's configured — the list can be exported to Substack
+  // later. Drop NEXT_PUBLIC_SHEETS_ENDPOINT to go back to subscribing directly.
+  if (SHEETS_ENABLED) {
+    return postToSheet<NewsletterField>(SHEET_TABS.newsletter, { ...values }, { signal });
   }
 
   if (!SUBSTACK_URL) {

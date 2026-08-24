@@ -55,6 +55,44 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
   --radius-5xl: calc(var(--radius) * 3.2);
+
+  /* Motion. Kept to three gestures on purpose — enter, rise, settle — so the
+     whole site moves the same way instead of every screen inventing its own. */
+  --animate-fade-in: fade-in 0.4s ease-out both;
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-scale-in: scale-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-spin-slow: spin 6s linear infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 :root {
@@ -136,12 +174,39 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply scroll-smooth font-sans;
+  }
+
+  /*
+   * One global damper rather than `motion-reduce:` on every animated element.
+   * Animations still run — durations just collapse — so anything relying on an
+   * animation's end state (a `both` fill mode, say) still lands correctly
+   * instead of being stuck at its starting frame.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
 @layer components {
   .px-section {
     @apply xs:px-[4.1%] px-4 lg:px-[4.5%] xl:px-[7.778%];
+  }
+
+  /* Card and tile hover. Transform-only, so it never reflows the grid. */
+  .hover-lift {
+    @apply transition-[transform,box-shadow,border-color] duration-300 ease-out;
+  }
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-lg;
   }
 }

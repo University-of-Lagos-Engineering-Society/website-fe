@@ -33,7 +33,7 @@ export function NewsListCard({ slug, details, imageUrl, imageAlt }: NewsListCard
 
   return (
     <Link href={`/stories/news/${slug}`} className="block">
-      <Card className="hover:border-accent flex flex-col gap-0 overflow-hidden rounded-lg border border-gray-200 bg-white p-0 shadow-none ring-0 transition-colors md:h-60 md:flex-row">
+      <Card className="hover:border-accent hover-lift flex flex-col gap-0 overflow-hidden rounded-lg border border-gray-200 bg-white p-0 shadow-none ring-0 md:h-60 md:flex-row">
         {/* 355.458 / 1216 of the designed row width. */}
         <div className="relative aspect-3/2 w-full shrink-0 md:aspect-auto md:h-full md:w-[29.232%]">
           <Image

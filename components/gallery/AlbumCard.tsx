@@ -23,7 +23,7 @@ export function AlbumCard({ slug, title, coverImage, coverAlt, photoCount }: Alb
   return (
     <Link
       href={`/activities/gallery/${slug}`}
-      className="group focus-visible:ring-ring/50 relative block aspect-square overflow-hidden rounded-2xl outline-none focus-visible:ring-3"
+      className="group hover-lift focus-visible:ring-ring/50 relative block aspect-square overflow-hidden rounded-2xl outline-none focus-visible:ring-3"
     >
       <Image
         src={coverImage}

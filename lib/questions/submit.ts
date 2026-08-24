@@ -1,5 +1,6 @@
 import { postJson } from '@/lib/api/client';
 import { createFieldResolver, type ApiResult } from '@/lib/api/errors';
+import { SHEETS_ENABLED, SHEET_TABS, postToSheet } from '@/lib/sheets/submit';
 import type { SubmitFn } from '@/hooks/use-form-submission';
 import type { QuestionField, QuestionValues } from './schema';
 
@@ -28,7 +29,8 @@ const ENDPOINT = process.env.NEXT_PUBLIC_BASE_ENDPOINT
  * needs a redeploy, not just an env edit.
  */
 export const QUESTIONS_FORM_ENABLED =
-  process.env.NEXT_PUBLIC_QUESTIONS_FORM_ENABLED === 'true' && ENDPOINT !== '';
+  SHEETS_ENABLED ||
+  (process.env.NEXT_PUBLIC_QUESTIONS_FORM_ENABLED === 'true' && ENDPOINT !== '');
 
 export interface QuestionPayload extends QuestionValues {
   /**
@@ -90,6 +92,12 @@ export const submitQuestion: SubmitFn<QuestionValues> = (
     source: 'website_faq',
     company_website: meta.company_website ?? '',
   };
+
+  // Sheets wins while it's configured. Drop NEXT_PUBLIC_SHEETS_ENDPOINT and
+  // this falls straight back to the real API — no code change.
+  if (SHEETS_ENABLED) {
+    return postToSheet<QuestionField>(SHEET_TABS.questions, payload, { signal });
+  }
 
   return postJson<QuestionField>(ENDPOINT, payload, { signal, resolveField });
 };

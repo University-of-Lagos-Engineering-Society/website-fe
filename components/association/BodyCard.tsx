@@ -27,7 +27,7 @@ export function BodyCard({
   return (
     // `h-full` lets the card fill the grid track. Nothing inside grows, so a
     // short body leaves the slack at the bottom rather than spreading it out.
-    <Card className="flex h-full flex-col items-center gap-y-3 rounded-lg border border-gray-200 p-0">
+    <Card className="hover-lift flex h-full flex-col items-center gap-y-3 rounded-lg border border-gray-200 p-0">
       <div className="flex h-55 w-full items-center justify-center overflow-hidden px-6 py-4">
         <Image
           src={imageSrc}
