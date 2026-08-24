@@ -6,18 +6,13 @@ export function WhoWeAre() {
           Who We Are
         </h2>
         <p className="py-8 text-center text-base/7 font-normal text-[hsl(217,19%,27%)] lg:pb-20.75 lg:text-lg/7">
-          The University of Lagos Engineering Society (ULES) is the premier student body
-          representing engineering students across all departments in the Faculty of Engineering at
-          UNILAG. We are a vibrant community of future engineers committed to academic excellence,
-          professional development, and social impact.
+          The Faculty of Engineering at the University of Lagos opened its doors in the 1964/65 academic session, five years after the Ashby Commission report made the case for expanding Nigeria's technical capacity. It began with three departments, Civil, Electrical, and Mechanical, and has since grown to nine.
           <br />
-          ULES serves as a bridge between academic learning and industry practice, providing our
-          members with opportunities to develop technical skills, build professional networks, and
-          contribute to innovative projects that address real-world challenges.
+          Its most significant restructuring came in 1982/83, when the faculty replaced the three-year post-A-level programme with the five-year unit course system still in place today, adding mandatory supervised industrial training along the way. Every undergraduate engineering programme is accredited by the Council for the Regulation of Engineering in Nigeria (COREN), with Surveying carrying additional accreditation from the Surveyors Council of Nigeria (SURCON).
           <br />
-          Our society brings together students from Civil Engineering, Mechanical Engineering,
-          Electrical Engineering, Chemical Engineering, Computer Engineering, Systems Engineering,
-          and all other engineering disciplines under one unified banner of excellence.
+          The University of Lagos Engineering Society (ULES) is the student body that ties the faculty together. Every engineering student belongs to it, from Bio-medical, Chemical, Civil, Computer, Electrical, Material and Metallurgical, Mechanical, and Systems Engineering through to Surveying and Geoinformatics, and ULES sits above the departmental associations as the platform where they meet.
+          <br />
+          That position is what makes the interdisciplinary work possible. ULES runs the Engineering Career Expo (ECX), the ULES Sports Festival, and the Professor Ayodele Awojobi Design Competition (PAADC), alongside the day-to-day work of representing students, connecting them to industry, and giving them room to build things that matter outside the curriculum.
         </p>
       </div>
     </section>

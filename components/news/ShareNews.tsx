@@ -28,11 +28,16 @@ type ShareNewsProps = {
   title: string;
   /** Absolute URL. Relative paths break every one of these share intents. */
   url: string;
+  /**
+   * Button label. Defaults to the news wording; the blog detail passes
+   * "Share post" to match its own frame.
+   */
+  label?: string;
 };
 
 const COPIED_RESET_MS = 2000;
 
-export function ShareNews({ title, url }: ShareNewsProps) {
+export function ShareNews({ title, url, label = 'Share news' }: ShareNewsProps) {
   const [copied, setCopied] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -89,7 +94,7 @@ export function ShareNews({ title, url }: ShareNewsProps) {
       >
         <Share2 className="size-5 shrink-0" aria-hidden="true" />
         {/* Fixed width above `sm`, so swapping the label doesn't shift the row. */}
-        <span aria-live="polite">{copied ? 'Link copied' : 'Share news'}</span>
+        <span aria-live="polite">{copied ? 'Link copied' : label}</span>
       </Button>
 
       <ul className="flex gap-3">

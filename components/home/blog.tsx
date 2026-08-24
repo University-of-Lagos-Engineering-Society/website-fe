@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { LucideArrowRight } from 'lucide-react';
 import BlogCard from '@/components/ui/blogCard';
 import { Button } from '@/components/ui/button';
-import { HIGHLIGHTED_POST_ITEMS } from '../constants';
+import { BLOG_ITEMS } from '../constants';
 
 const Blog = () => {
   return (
@@ -12,7 +12,7 @@ const Blog = () => {
           <span className="xs:inline hidden">From The </span>
           Blog
         </h1>
-        <Link href={'#'}>
+        <Link href='/stories/blog'>
           <Button
             variant={'ghost'}
             className="tracking-0 flex h-auto items-center gap-1 py-0 text-sm/6 text-[hsl(223,54%,22%)] sm:text-base"
@@ -26,7 +26,7 @@ const Blog = () => {
         </Link>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3">
-        {HIGHLIGHTED_POST_ITEMS.map((post) => (
+        {BLOG_ITEMS.map((post) => (
           <BlogCard
             key={post.id}
             details={post.details}

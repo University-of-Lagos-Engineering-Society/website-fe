@@ -32,8 +32,8 @@ export const NAV_ITEMS: NavItem[] = [
   {
     trigger: 'Associations',
     items: [
-      { label: 'Sub Bodies', href: '/associations#sub' },
       { label: 'Departmental Bodies', href: '/associations#departmental' },
+      { label: 'Sub Bodies', href: '/associations#sub' },
     ],
   },
   {
