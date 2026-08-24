@@ -20,8 +20,15 @@ import type { FieldErrors, FieldName, FormValues } from './types';
  *   });
  */
 
-/** Any Zod schema whose output is a string. */
-export type FieldSchema = z.ZodType<string, z.ZodTypeDef, string>;
+/**
+ * Any Zod schema whose output is a string.
+ *
+ * Zod 4 signature. `ZodType` here is `<Output, Input>` — v3's middle
+ * `ZodTypeDef` parameter is gone, and the third slot is now the schema's
+ * internals rather than its input, so the v3 spelling
+ * (`z.ZodType<string, z.ZodTypeDef, string>`) fails to compile against v4.
+ */
+export type FieldSchema = z.ZodType<string, string>;
 
 export interface FieldConfig {
   schema: FieldSchema;
