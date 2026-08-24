@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { SOCIALS, QUICK_LINKS, RESOURCES, ACTIVITIES } from '../../constants';
-import { LocationIcon, MessageIcon } from '../../icons';
+import { LocationIcon, MessageIcon, PhoneIcon } from '../../icons';
 import { NewsletterForm } from './newsletter';
 
 export function Footer() {
@@ -56,6 +56,18 @@ export function Footer() {
                   <MessageIcon />
                 </span>
                 <span className="text-sm/5 text-[hsl(218,14%,84%)]">unilagengr@gmail.com</span>
+              </p>
+              <p className="flex gap-x-2 mt-2">
+                <span className="mt-1">
+                  <PhoneIcon className="[&_path]:stroke-accent" />
+                </span>
+                <span className="text-sm/5 text-[hsl(218,14%,84%)]">Olawale Ayoola: +234 813 023 4284</span>
+              </p>
+              <p className="flex gap-x-2 mt-2">
+                <span className="mt-1">
+                  <PhoneIcon className="[&_path]:stroke-accent" />
+                </span>
+                <span className="text-sm/5 text-[hsl(218,14%,84%)]">Ogboro Samuel: +234 816 658 4997</span>
               </p>
             </div>
           </div>
