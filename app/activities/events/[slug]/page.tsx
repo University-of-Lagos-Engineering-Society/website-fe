@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Calendar, Clock, MapPin } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Calendar, Clock, MapPin } from 'lucide-react';
 import { HIGHLIGHTED_EVENT_ITEMS, findAlbumForEvent } from '@/components/constants';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { isEventPast } from '@/lib/utils';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { eventJsonLd, pageMetadata } from '@/lib/seo';
@@ -38,7 +39,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
     notFound();
   }
 
-  const { details, imageUrl, imageAlt, time, venue, timestamp } = event;
+  const { details, imageUrl, imageAlt, time, venue, timestamp, registrationLink } = event;
   const { title, description, date, category } = details;
   const isPast = isEventPast(timestamp);
   const aboutParagraphs = description
@@ -138,11 +139,30 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
 
         <div className="mt-10">
           <h2 className="text-2xl font-semibold text-[#1A2B56] sm:text-3xl">About This Event</h2>
-          <div className="mt-4 space-y-4 text-slate-600">
+          <div className="mt-4 space-y-4 whitespace-pre-line text-slate-600">
             {aboutParagraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
           </div>
+
+          {/*
+            Only when there's somewhere to register AND the event is still
+            ahead — a registration button on a finished event is a dead end.
+          */}
+          {registrationLink && !isPast && (
+            <div className="mt-8">
+              <a
+                href={registrationLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(buttonVariants(), 'h-12 gap-2 px-6 text-base/6')}
+              >
+                Register here
+                <ArrowUpRight className="size-4 shrink-0" aria-hidden="true" />
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
+            </div>
+          )}
         </div>
 
         <div id="gallery" className="mt-10 rounded-2xl bg-white pt-6">

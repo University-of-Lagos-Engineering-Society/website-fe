@@ -12,7 +12,9 @@ const UpcomingEvents = () => {
         {HIGHLIGHTED_EVENT_ITEMS.filter((event) => !isEventPast(event.timestamp)).map((event) => (
           <EventCard
             key={event.id}
-            details={event.details}
+            // Cards get the one-line summary; the full description is for
+            // the detail page.
+            details={{ ...event.details, description: event.details.shortAbout }}
             imageUrl={event.imageUrl}
             imageAlt={event.imageAlt}
           />

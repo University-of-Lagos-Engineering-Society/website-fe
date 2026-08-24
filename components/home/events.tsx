@@ -26,10 +26,12 @@ const Events = () => {
         </Link>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3">
-        {HIGHLIGHTED_EVENT_ITEMS.slice(0, 3).map((event) => (
+        {HIGHLIGHTED_EVENT_ITEMS.slice(0, 2).map((event) => (
           <EventCard
             key={event.id}
-            details={event.details}
+            // Cards get the one-line summary; the full description is for
+            // the detail page.
+            details={{ ...event.details, description: event.details.shortAbout }}
             imageUrl={event.imageUrl}
             imageAlt={event.imageAlt}
           />
