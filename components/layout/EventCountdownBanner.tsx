@@ -6,25 +6,53 @@ import { ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
 import { HIGHLIGHTED_EVENT_ITEMS } from '@/components/constants';
-import { isEventPast } from '@/lib/utils';
+import { cn, isEventPast } from '@/lib/utils';
 
 /**
- * Countdown strip promoting the annual dinner, pinned under the navbar.
+ * Standing banner for the promoted event, pinned under the navbar.
  *
- * Positioned `absolute` inside the wrapper around `<main>`, so it overlays the
- * top of the page rather than pushing the hero down, and scrolls away with the
- * content instead of sticking like the navbar above it.
+ * It no longer removes itself when the event passes — it moves through three
+ * phases and stays put:
  *
- * It removes itself once the event is over — `isEventPast` applies the same
- * three-hour grace the rest of the site uses, so the banner survives the
- * evening of the event rather than vanishing the moment it starts.
+ *   upcoming   → live countdown to the start
+ *   live       → "Event in progress", from the start time until the grace
+ *                period expires
+ *   concluded  → "Event concluded"
  *
- * Nothing renders until after mount. A countdown is time-dependent by
- * definition, so server and client would disagree on the seconds digit and
- * React would report a hydration mismatch on every single load.
+ * The boundaries come from `isEventPast`, the same helper the event pages use,
+ * so its three-hour grace defines "in progress" here too — the banner reads as
+ * live for the evening of the event rather than flipping the instant the clock
+ * strikes the start time.
+ *
+ * Sits in normal document flow, directly under the (sticky) navbar — not
+ * `absolute`. That was tried first: a zero-footprint overlay pinned to the top
+ * of `<main>`, so it wouldn't push the hero down. It broke wherever the hero's
+ * own content ran taller than the viewport, which is often — the hero bottom-
+ * anchors its text against `min-h-[calc(100vh-66px)]`, but that's a floor, not
+ * a cap: once the heading, paragraph, buttons and stats row exceed it, the
+ * hero overflows upward and its content starts flush at the top of the
+ * section — exactly where the floating banner also sat, so the two overlapped.
+ * That can't be fixed by adjusting z-index or padding, because the hero's
+ * height is content-driven and varies by viewport and by copy length. Real
+ * flow is the only placement that's guaranteed never to collide with it.
+ *
+ * It still isn't sticky — no `position: sticky`, so unlike the navbar above it,
+ * it scrolls away the moment you scroll past it rather than staying pinned.
+ *
+ * Nothing renders until after mount. Every phase is time-dependent, so server
+ * and client would disagree and React would report a hydration mismatch on
+ * every single load. That does mean a one-time layout shift the moment it
+ * mounts and claims its space — traded deliberately for "never overlaps the
+ * page", which is the more visible failure of the two.
  */
 
+/**
+ * The event being promoted. Deliberately pinned rather than auto-selected —
+ * which event gets the banner is an editorial call, not "whichever is soonest".
+ */
 const EVENT_SLUG = 'dinner-awards-2026';
+
+type Phase = 'upcoming' | 'live' | 'concluded';
 
 type Remaining = { days: number; hours: number; minutes: number; seconds: number };
 
@@ -37,6 +65,21 @@ function breakdown(ms: number): Remaining {
     seconds: total % 60,
   };
 }
+
+function resolvePhase(timestamp: string): Phase {
+  if (isEventPast(timestamp)) return 'concluded';
+  return Date.now() >= new Date(timestamp).getTime() ? 'live' : 'upcoming';
+}
+
+const TONE: Record<Phase, { bar: string; dot: string; pulse: boolean }> = {
+  upcoming: { bar: 'bg-accent hover:bg-accent/90 text-white', dot: 'bg-white', pulse: true },
+  live: { bar: 'bg-primary hover:bg-primary/90 text-white', dot: 'bg-accent', pulse: true },
+  concluded: {
+    bar: 'bg-gray-100 hover:bg-gray-200 text-primary',
+    dot: 'bg-gray-400',
+    pulse: false,
+  },
+};
 
 function Unit({ value, label }: { value: number; label: string }) {
   return (
@@ -53,8 +96,8 @@ export function EventCountdownBanner() {
   const event = HIGHLIGHTED_EVENT_ITEMS.find((item) => item.slug === EVENT_SLUG);
   const timestamp = event?.timestamp;
 
+  const [phase, setPhase] = useState<Phase | null>(null);
   const [remaining, setRemaining] = useState<Remaining | null>(null);
-  const [finished, setFinished] = useState(false);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -63,11 +106,11 @@ export function EventCountdownBanner() {
     const target = new Date(timestamp).getTime();
 
     const tick = () => {
-      if (isEventPast(timestamp)) {
-        setFinished(true);
-        return;
-      }
-      setRemaining(breakdown(target - Date.now()));
+      const next = resolvePhase(timestamp);
+      setPhase(next);
+      // Only the countdown needs a per-second value; the other two phases are
+      // static copy, so there's nothing to recompute.
+      setRemaining(next === 'upcoming' ? breakdown(target - Date.now()) : null);
     };
 
     tick();
@@ -75,24 +118,33 @@ export function EventCountdownBanner() {
     return () => clearInterval(id);
   }, [timestamp]);
 
-  if (!event || finished || !remaining) return null;
+  if (!event || phase === null) return null;
+
+  const tone = TONE[phase];
 
   return (
     <motion.div
-      className="absolute inset-x-0 top-0 z-40"
       initial={reduceMotion ? false : { y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <Link
         href={`/activities/events/${event.slug}`}
-        className="bg-accent hover:bg-accent/90 focus-visible:ring-ring/60 group flex w-full items-center justify-center gap-3 px-4 py-2.5 text-white transition-colors outline-none focus-visible:ring-3 focus-visible:ring-inset md:gap-4 md:py-3"
+        className={cn(
+          'group focus-visible:ring-ring/60 flex w-full items-center justify-center gap-3 px-4 py-2.5 transition-colors outline-none focus-visible:ring-3 focus-visible:ring-inset md:gap-4 md:py-3',
+          tone.bar,
+        )}
       >
         <span className="relative flex size-2 shrink-0">
-          {!reduceMotion && (
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-white opacity-75" />
+          {tone.pulse && !reduceMotion && (
+            <span
+              className={cn(
+                'absolute inline-flex size-full animate-ping rounded-full opacity-75',
+                tone.dot,
+              )}
+            />
           )}
-          <span className="relative inline-flex size-2 rounded-full bg-white" />
+          <span className={cn('relative inline-flex size-2 rounded-full', tone.dot)} />
         </span>
 
         <span className="truncate text-sm/5 font-medium md:text-base/6">
@@ -100,17 +152,23 @@ export function EventCountdownBanner() {
           <span className="sm:hidden">Dinner &amp; Awards</span>
         </span>
 
-        <span aria-hidden="true" className="hidden h-4 w-px bg-white/40 sm:block" />
+        <span aria-hidden="true" className="hidden h-4 w-px bg-current/40 sm:block" />
 
-        <span
-          className="flex shrink-0 items-baseline gap-2 md:gap-3"
-          aria-label={`${remaining.days} days, ${remaining.hours} hours, ${remaining.minutes} minutes and ${remaining.seconds} seconds remaining`}
-        >
-          <Unit value={remaining.days} label="d" />
-          <Unit value={remaining.hours} label="h" />
-          <Unit value={remaining.minutes} label="m" />
-          <Unit value={remaining.seconds} label="s" />
-        </span>
+        {phase === 'upcoming' && remaining ? (
+          <span
+            className="flex shrink-0 items-baseline gap-2 md:gap-3"
+            aria-label={`${remaining.days} days, ${remaining.hours} hours, ${remaining.minutes} minutes and ${remaining.seconds} seconds remaining`}
+          >
+            <Unit value={remaining.days} label="d" />
+            <Unit value={remaining.hours} label="h" />
+            <Unit value={remaining.minutes} label="m" />
+            <Unit value={remaining.seconds} label="s" />
+          </span>
+        ) : (
+          <span className="shrink-0 text-sm/5 font-semibold md:text-base/6">
+            {phase === 'live' ? 'Event in progress' : 'Event concluded'}
+          </span>
+        )}
 
         <ArrowRight
           aria-hidden="true"
