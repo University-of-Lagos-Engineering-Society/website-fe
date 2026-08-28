@@ -111,16 +111,9 @@ export default function RootLayout({
         <PageLoader />
 
         <Header />
+        <EventCountdownBanner />
 
-        {/*
-          `relative` so the countdown banner can sit absolutely at the top of
-          this block — directly under the sticky navbar, overlaying the page
-          rather than pushing the hero down, and scrolling away with content.
-        */}
-        <div className="relative flex-1">
-          <EventCountdownBanner />
-          <main>{children}</main>
-        </div>
+        <main className="flex-1">{children}</main>
 
         <Footer />
       </body>

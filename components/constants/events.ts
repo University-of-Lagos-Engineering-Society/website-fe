@@ -50,7 +50,7 @@ export const HIGHLIGHTED_EVENT_ITEMS = [
       title: 'Student\'s Symposium 3.0',
       description:
         "You've heard about the red carpet interviews👗\nYou've heard about the Awards Night 🏅\n5 Communities.\n5 panelists.\n1 Mechanical Engineering\n\nNIMechE UNILAG SF brings you the third edition of the Students´ Symposium, don't miss the conversation that defines our generation: MECHANICAL ENGINEERING IN THE ERA OF AI.",
-      date: 'September 1st, 2026',
+      date: 'August 28th, 2026',
       category: 'Annual Event',
       shortAbout:
         'NIMechE UNILAG SF brings you the third edition of the Students\' Symposium: Mechanical Engineering in the Era of AI.',
